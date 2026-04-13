@@ -1,7 +1,7 @@
 "use client";
 
 import * as Accordion from "@radix-ui/react-accordion";
-import { motion, useInView } from "motion/react";
+import { AnimatePresence, motion, useInView } from "motion/react";
 import React, {
 	forwardRef,
 	ReactNode,
@@ -191,74 +191,92 @@ export const Feature = ({
 		}
 	}, [currentIndex, previousIndex]);
 
-	// Replace the existing image rendering section with this optimized version
+	// Render media with smooth sliding transitions
 	const renderMedia = () => {
 		const currentItem = featureItems[currentIndex];
 
 		if (!currentItem) {
 			return (
-				<div className="aspect-auto h-full w-full animate-pulse rounded-xl border border-neutral-300/50 bg-gray-200 p-1" />
+				<div className="aspect-auto h-full w-full animate-pulse rounded-xl border border-white/[0.08] bg-black/20 p-2" />
 			);
 		}
 
 		if (currentItem.image) {
 			return (
 				<div className="relative h-full w-full overflow-hidden">
-					{/* Placeholder/Fallback */}
+					{/* Placeholder/Fallback - transparent */}
 					<div
 						className={cn(
-							"absolute inset-0 rounded-xl border border-neutral-300/50 bg-gray-200",
-							"transition-all duration-150",
+							"absolute inset-0 rounded-xl border border-white/[0.08] bg-black/20",
+							"transition-all duration-300 ease-out",
 							imageLoaded ? "opacity-0" : "opacity-100",
 						)}
 					/>
 
-					{/* Main Image */}
-					<motion.img
-						key={currentIndex}
-						src={currentItem.image}
-						alt={currentItem.title}
-						className={cn(
-							"aspect-auto h-full w-full rounded-xl border border-neutral-300/50 object-cover p-1",
-							"transition-all duration-300",
-							imageLoaded ? "opacity-100 blur-0" : "opacity-0 blur-xl",
-						)}
-						initial={{
-							opacity: 0,
-							filter: "blur(5px)",
-						}}
-						animate={{
-							opacity: imageLoaded ? 1 : 0,
-							filter: imageLoaded ? "blur(0px)" : "blur(5px)",
-						}}
-						transition={{
-							duration: 0.3,
-							ease: [0.4, 0, 0.2, 1],
-						}}
-						onLoad={() => setImageLoaded(true)}
-						loading="eager"
-						sizes="(max-width: 768px) 100vw, 50vw"
-					/>
+					{/* Main Image with slide animation */}
+					<AnimatePresence mode="wait">
+						<motion.img
+							key={currentIndex}
+							src={currentItem.image}
+							alt={currentItem.title}
+							className={cn(
+								"aspect-auto h-full w-full rounded-xl border border-white/[0.08] bg-black/20 object-contain p-2 shadow-2xl",
+								imageLoaded ? "opacity-100" : "opacity-0",
+							)}
+							initial={{
+								opacity: 0,
+								x: 80,
+								scale: 0.92,
+								filter: "blur(4px)",
+							}}
+							animate={{
+								opacity: imageLoaded ? 1 : 0,
+								x: 0,
+								scale: 1,
+								filter: "blur(0px)",
+							}}
+							exit={{
+								opacity: 0,
+								x: -80,
+								scale: 0.92,
+								filter: "blur(4px)",
+							}}
+							transition={{
+								duration: 0.5,
+								ease: [0.25, 0.46, 0.45, 0.94],
+							}}
+							onLoad={() => setImageLoaded(true)}
+							loading="eager"
+							sizes="(max-width: 768px) 100vw, 50vw"
+						/>
+					</AnimatePresence>
 				</div>
 			);
 		}
 
 		if (currentItem.video) {
 			return (
-				<video
-					preload="auto"
-					src={currentItem.video}
-					className="aspect-auto h-full w-full rounded-lg object-cover"
-					autoPlay
-					loop
-					muted
-					playsInline // Better mobile support
-				/>
+				<AnimatePresence mode="wait">
+					<motion.video
+						key={currentIndex}
+						preload="auto"
+						src={currentItem.video}
+						className="aspect-auto h-full w-full rounded-xl border border-white/[0.08] bg-black/20 object-contain p-2 shadow-2xl"
+						autoPlay
+						loop
+						muted
+						playsInline
+						initial={{ opacity: 0, x: 80, scale: 0.92, filter: "blur(4px)" }}
+						animate={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
+						exit={{ opacity: 0, x: -80, scale: 0.92, filter: "blur(4px)" }}
+						transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+					/>
+				</AnimatePresence>
 			);
 		}
 
 		return (
-			<div className="aspect-auto h-full w-full rounded-xl border border-neutral-300/50 bg-gray-200 p-1" />
+			<div className="aspect-auto h-full w-full rounded-xl border border-white/[0.08] bg-black/20 p-2" />
 		);
 	};
 
@@ -284,9 +302,9 @@ export const Feature = ({
 								<AccordionItem
 									key={item.id}
 									className={cn(
-										"relative rounded-lg data-[state=closed]:rounded-none data-[state=closed]:border-0 data-[state=open]:bg-white dark:data-[state=open]:bg-[#27272A]",
-										"dark:data-[state=open]:shadow-[0px_0px_0px_1px_rgba(249,250,251,0.06),0px_0px_0px_1px_var(--color-zinc-800,#27272A),0px_1px_2px_-0.5px_rgba(0,0,0,0.24),0px_2px_4px_-1px_rgba(0,0,0,0.24)]",
-										"data-[state=open]:shadow-[0px_0px_1px_0px_rgba(0,0,0,0.16),0px_1px_2px_-0.5px_rgba(0,0,0,0.16)]",
+										"group relative overflow-hidden rounded-xl border border-transparent bg-white/[0.02] transition-all duration-300",
+										"hover:border-white/[0.06] hover:bg-white/[0.04]",
+										"data-[state=open]:border-white/[0.12] data-[state=open]:bg-white/[0.06]",
 									)}
 									value={`item-${index}`}
 								>
@@ -362,7 +380,7 @@ export const Feature = ({
 						{featureItems.map((item, index) => (
 							<a
 								key={item.id}
-								className="card relative grid h-full max-w-64 shrink-0 items-start justify-center border-t border-b border-l bg-background p-3 first:rounded-tl-xl last:rounded-tr-xl last:border-r"
+								className="card group relative grid h-full max-w-64 shrink-0 items-start justify-center border-t border-b border-l border-white/[0.08] bg-black/[0.3] p-4 backdrop-blur-sm transition-all duration-300 hover:bg-black/[0.4] first:rounded-tl-xl last:rounded-tr-xl last:border-r"
 								onClick={() => setCurrentIndex(index)}
 								style={{
 									scrollSnapAlign: "center",

@@ -47,4 +47,91 @@ model Message {
   @@map("messages")
 }
 
+// UserSubscription model - tracks Stripe subscription status for billing
+model UserSubscription {
+  id                   String    @id @default(cuid())
+  stripeCustomerId     String    @unique
+  stripeSubscriptionId String?   @unique
+  status               String    // "active", "canceled", "past_due", "incomplete"
+  priceId              String
+  currentPeriodEnd     DateTime?
+  cancelAtPeriodEnd    Boolean   @default(false)
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
 
+  // Indexes for performance
+  @@index([stripeCustomerId])
+  @@index([stripeSubscriptionId])
+  @@index([status])
+  @@map("user_subscriptions")
+}
+
+// VideoProject model - stores structured DSL for video generation
+model VideoProject {
+  id        String   @id @default(uuid())
+  userId    String
+  chatId    String
+
+  mode      VideoMode
+  dsl       Json     // Structured Video DSL (scenes, theme, etc.)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  jobs      VideoJob[]
+
+  @@index([userId, chatId])
+  @@map("video_projects")
+}
+
+// VideoJob model - tracks render jobs (preview or final)
+model VideoJob {
+  id        String   @id @default(uuid())
+  projectId String
+
+  type      VideoJobType
+  status    VideoJobStatus @default(PENDING)
+
+  progress  Float @default(0)
+  outputUrl String?
+
+  // Renderer provider ('veedeo' | 'remotion')
+  provider    String?
+
+  // External render ID (provider-specific)
+  renderId    String?
+
+  // S3 storage fields (for Remotion Lambda)
+  bucketName  String?
+  outKey      String?
+
+  error     String?
+
+  createdAt DateTime @default(now())
+  completedAt DateTime?
+
+  // Relations
+  project   VideoProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([status])
+  @@map("video_jobs")
+}
+
+enum VideoMode {
+  TEMPLATE
+  CREATIVE
+}
+
+enum VideoJobType {
+  PREVIEW
+  FINAL
+}
+
+enum VideoJobStatus {
+  PENDING
+  RENDERING
+  COMPLETED
+  FAILED
+}

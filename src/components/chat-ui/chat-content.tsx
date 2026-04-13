@@ -6,6 +6,7 @@ import { useMemo } from "react";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ChatInput } from "./chat-input";
 import { ChatStream } from "./chat-stream";
+import { AmbientBackground } from "./ambient-background";
 
 // Extract text from message parts for title
 function extractTextFromMessage(message: UIMessage): string {
@@ -63,13 +64,15 @@ export function ChatContent({
 			api: "/api/chat",
 			prepareSendMessagesRequest({ messages, id }) {
 				const lastMessage = messages[messages.length - 1];
-				// Extract searchMode from message metadata if present
+				// Extract mode flags from message metadata if present
 				const searchMode = (lastMessage as any).searchMode ?? false;
+				const videoMode = (lastMessage as any).videoMode ?? false;
 				return {
 					body: {
 						message: lastMessage, // Only send last message
 						id,
 						searchMode, // Pass searchMode to API
+						videoMode, // Pass videoMode to API
 					},
 				};
 			},
@@ -83,11 +86,13 @@ export function ChatContent({
 	const chatTitle = useMemo(() => generateChatTitle(messages), [messages]);
 
 	return (
-		<main className="flex h-screen flex-col overflow-hidden">
-			<header className="z-10 flex h-14.5 w-full shrink-0 items-center gap-2 border-b bg-background px-4">
-				<SidebarTrigger className="-ml-1" />
-				<div className="font-medium text-foreground">{chatTitle}</div>
-			</header>
+		<>
+			<AmbientBackground isStreaming={isLoading} />
+			<main className="relative flex h-screen flex-col overflow-hidden">
+				<header className="z-10 flex h-14.5 w-full shrink-0 items-center gap-2 border-b bg-background/80 px-4 backdrop-blur-sm">
+					<SidebarTrigger className="-ml-1" />
+					<div className="font-medium text-foreground">{chatTitle}</div>
+				</header>
 
 			<div className="relative flex-1 overflow-y-auto">
 				<ChatStream messages={messages} />
@@ -99,6 +104,7 @@ export function ChatContent({
 				onSubmit={sendMessage}
 				className="z-10 shrink-0 bg-background px-3 pb-3 md:px-5 md:pb-5"
 			/>
-		</main>
+			</main>
+		</>
 	);
 }

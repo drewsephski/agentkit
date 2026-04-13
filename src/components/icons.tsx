@@ -8,7 +8,7 @@ export const Icons = {
 			viewBox="0 0 42 24"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			className={cn("size-4 fill-[var(--secondary)]", className)}
+			className={cn("size-4 fill-[var(--primary)]", className)}
 		>
 			<g clipPath="url(#clip0_322_9172)">
 				<path

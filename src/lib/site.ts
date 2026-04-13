@@ -1,11 +1,11 @@
 export const siteConfig = {
 	name: "AgentKit",
-	url: "https://agentkitt.xyz",
+	url: "http://localhost:3000",
 	description:
 		"Production-ready starter template for building AI agents with web search capabilities",
 	links: {
-		twitter: "https://x.com/anayatkhan09",
-		github: "https://github.com/anayatkhan1/agentkit-starter",
+		twitter: "https://x.com/drewsepeczi",
+		github: "https://github.com/drewsephski",
 	},
 };
 

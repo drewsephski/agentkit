@@ -354,3 +354,82 @@ export async function getChatTitle(
 		return "Chat";
 	}
 }
+
+/**
+ * Delete a chat and all its messages
+ * @param id - Chat ID
+ * @param userId - Clerk user ID for authorization
+ */
+export async function deleteChat(
+	id: string,
+	userId?: string,
+): Promise<void> {
+	try {
+		// Verify chat exists and belongs to user (if userId provided)
+		if (userId) {
+			const chat = await prisma.chat.findUnique({
+				where: { id },
+				select: { userId: true },
+			});
+
+			if (!chat) {
+				throw new Error(`Chat ${id} not found`);
+			}
+
+			if (chat.userId !== userId) {
+				throw new Error("Unauthorized: Chat does not belong to user");
+			}
+		}
+
+		// Delete chat (messages will be cascade deleted via foreign key constraint)
+		await prisma.chat.delete({
+			where: { id },
+		});
+	} catch (error) {
+		console.error(`Failed to delete chat ${id}:`, error);
+		throw new Error(
+			`Failed to delete chat: ${error instanceof Error ? error.message : "Unknown error"}`,
+		);
+	}
+}
+
+/**
+ * Rename a chat
+ * @param id - Chat ID
+ * @param title - New title
+ * @param userId - Clerk user ID for authorization
+ */
+export async function renameChat(
+	id: string,
+	title: string,
+	userId?: string,
+): Promise<void> {
+	try {
+		// Verify chat exists and belongs to user (if userId provided)
+		if (userId) {
+			const chat = await prisma.chat.findUnique({
+				where: { id },
+				select: { userId: true },
+			});
+
+			if (!chat) {
+				throw new Error(`Chat ${id} not found`);
+			}
+
+			if (chat.userId !== userId) {
+				throw new Error("Unauthorized: Chat does not belong to user");
+			}
+		}
+
+		// Update chat title
+		await prisma.chat.update({
+			where: { id },
+			data: { title: title.trim() || null },
+		});
+	} catch (error) {
+		console.error(`Failed to rename chat ${id}:`, error);
+		throw new Error(
+			`Failed to rename chat: ${error instanceof Error ? error.message : "Unknown error"}`,
+		);
+	}
+}

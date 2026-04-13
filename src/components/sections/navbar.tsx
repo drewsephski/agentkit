@@ -106,7 +106,7 @@ export function Navbar() {
 					className={cn(
 						"mx-auto max-w-7xl rounded-2xl transition-all duration-300 xl:px-0",
 						hasScrolled
-							? "border border-border bg-background/75 px-2 backdrop-blur-lg"
+							? "border border-white/[0.08] bg-white/[0.04] px-2 backdrop-blur-lg"
 							: "px-7 shadow-none",
 					)}
 				>
@@ -121,7 +121,7 @@ export function Navbar() {
 						<div className="flex shrink-0 flex-row items-center gap-1 md:gap-3">
 							<div className="flex items-center space-x-6">
 								<Link
-									className="hidden h-8 w-fit items-center justify-center rounded-full border border-white/[0.12] bg-secondary px-4 font-normal text-primary-foreground text-sm tracking-wide shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_3px_3px_-1.5px_rgba(16,24,40,0.06),0_1px_1px_rgba(16,24,40,0.08)] md:flex dark:text-secondary-foreground"
+									className="hidden h-8 w-fit items-center justify-center rounded-full border border-border bg-secondary px-4 font-normal text-secondary-foreground text-sm tracking-wide shadow-sm transition-all duration-200 hover:bg-accent md:flex dark:border-white/[0.12] dark:text-foreground dark:shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_3px_3px_-1.5px_rgba(16,24,40,0.06),0_1px_1px_rgba(16,24,40,0.08)]"
 									href="/chat"
 								>
 									Try for free
@@ -219,7 +219,7 @@ export function Navbar() {
 								<div className="flex flex-col gap-2">
 									<Link
 										href="/chat"
-										className="flex h-8 w-full items-center justify-center rounded-full border border-white/[0.12] bg-secondary px-4 font-normal text-primary-foreground text-sm tracking-wide shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_3px_3px_-1.5px_rgba(16,24,40,0.06),0_1px_1px_rgba(16,24,40,0.08)] transition-all ease-out hover:bg-secondary/80 active:scale-95 dark:text-secondary-foreground"
+										className="flex h-8 w-full items-center justify-center rounded-full border border-border bg-secondary px-4 font-normal text-secondary-foreground text-sm tracking-wide shadow-sm transition-all duration-200 hover:bg-accent active:scale-95 dark:border-white/[0.12] dark:text-foreground dark:shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_3px_3px_-1.5px_rgba(16,24,40,0.06),0_1px_1px_rgba(16,24,40,0.08)]"
 									>
 										Try for free
 									</Link>

@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <!-- Green accent palette matching the app -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050507"/>
+      <stop offset="50%" stop-color="#0a0a0c"/>
+      <stop offset="100%" stop-color="#050507"/>
+    </linearGradient>
+    
+    <radialGradient id="greenGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00d992" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#00a86b" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00d992" stop-opacity="0"/>
+    </radialGradient>
+    
+    <linearGradient id="glassSurface" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.06)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.02)"/>
+    </linearGradient>
+    
+    <linearGradient id="accentGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d992"/>
+      <stop offset="100%" stop-color="#00a86b"/>
+    </linearGradient>
+    
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Transparent background - no fill -->
+  
+  <!-- Central green glow -->
+  <ellipse cx="400" cy="225" rx="280" ry="180" fill="url(#greenGlow)" filter="url(#softGlow)"/>
+  
+  <!-- Title text -->
+  <text x="400" y="45" font-family="system-ui, sans-serif" font-size="18" fill="#00d992" font-weight="600" text-anchor="middle">AI-Powered Web Search</text>
+  <text x="400" y="68" font-family="system-ui, sans-serif" font-size="12" fill="#8a9199" text-anchor="middle">Search the web with intelligent agents</text>
+  
+  <!-- Floating decorative nodes -->
+  <g opacity="0.3">
+    <circle cx="100" cy="80" r="4" fill="#00d992">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-8; 0,0" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="700" cy="100" r="5" fill="#00a86b">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,6; 0,0" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="80" cy="350" r="3" fill="#00d992">
+      <animateTransform attributeName="transform" type="translate" values="0,0; -5,0; 0,0" dur="7s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="720" cy="380" r="4" fill="#00a86b">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 5,0; 0,0" dur="4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Main Search Interface -->
+  <g transform="translate(200, 95)">
+    <!-- Outer glow -->
+    <rect x="-4" y="-4" width="408" height="268" rx="20" fill="rgba(0,217,146,0.12)" filter="url(#softGlow)"/>
+    
+    <!-- Card base -->
+    <rect x="0" y="0" width="400" height="260" rx="16" fill="rgba(10,10,12,0.8)" stroke="rgba(0,217,146,0.25)" stroke-width="1"/>
+    <rect x="0" y="0" width="400" height="260" rx="16" fill="url(#glassSurface)"/>
+    
+    <!-- Top highlight -->
+    <path d="M16 1 H384" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-linecap="round"/>
+    
+    <!-- Window header -->
+    <rect x="0" y="0" width="400" height="35" rx="16" fill="rgba(5,5,7,0.6)"/>
+    <rect x="0" y="25" width="400" height="15" fill="rgba(5,5,7,0.6)"/>
+    <text x="20" y="22" font-family="system-ui, sans-serif" font-size="11" fill="#8a9199" font-weight="500">Web Search Agent</text>
+    
+    <!-- Search input area -->
+    <g transform="translate(30, 45)">
+      <!-- Input field -->
+      <rect x="0" y="0" width="340" height="50" rx="10" fill="rgba(5,5,7,0.6)" stroke="rgba(0,217,146,0.35)" stroke-width="1.5"/>
+      <!-- Search icon -->
+      <circle cx="30" cy="25" r="10" stroke="url(#accentGreen)" stroke-width="2" fill="none" opacity="0.9"/>
+      <line x1="37" y1="32" x2="45" y2="40" stroke="url(#accentGreen)" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Input text -->
+      <text x="55" y="30" font-family="system-ui, sans-serif" font-size="13" fill="#f2f2f2">Latest AI developments</text>
+      <!-- Search button -->
+      <rect x="280" y="8" width="52" height="34" rx="8" fill="url(#accentGreen)" opacity="0.9"/>
+      <text x="306" y="28" font-family="system-ui, sans-serif" font-size="11" fill="#050507" font-weight="600" text-anchor="middle">Search</text>
+    </g>
+    
+    <!-- Search results area -->
+    <g transform="translate(30, 110)">
+      <!-- Result 1 -->
+      <g>
+        <rect x="0" y="0" width="340" height="45" rx="8" fill="rgba(0,217,146,0.08)" stroke="rgba(0,217,146,0.15)" stroke-width="1"/>
+        <text x="15" y="18" font-family="system-ui, sans-serif" font-size="12" fill="#f2f2f2" font-weight="500">OpenAI announces GPT-5 capabilities</text>
+        <text x="15" y="35" font-family="system-ui, sans-serif" font-size="10" fill="#8a9199">openai.com • 2 hours ago</text>
+        <!-- Source badge -->
+        <rect x="290" y="12" width="40" height="20" rx="4" fill="rgba(0,217,146,0.15)" stroke="rgba(0,217,146,0.3)" stroke-width="1"/>
+        <text x="310" y="26" font-family="system-ui, sans-serif" font-size="9" fill="#00d992" text-anchor="middle">8</text>
+      </g>
+      
+      <!-- Result 2 -->
+      <g transform="translate(0, 52)">
+        <rect x="0" y="0" width="340" height="45" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="15" y="18" font-family="system-ui, sans-serif" font-size="12" fill="#c8c8c8">AI agents transforming workflows</text>
+        <text x="15" y="35" font-family="system-ui, sans-serif" font-size="10" fill="#6b7280">techcrunch.com • 5 hours ago</text>
+      </g>
+      
+      <!-- Status bar -->
+      <g transform="translate(0, 108)">
+        <text x="0" y="15" font-family="SFMono-Regular, monospace" font-size="10" fill="#00d992">●</text>
+        <text x="15" y="15" font-family="SFMono-Regular, monospace" font-size="10" fill="#8a9199">8 sources analyzed</text>
+        <text x="250" y="15" font-family="SFMono-Regular, monospace" font-size="10" fill="#6b7280">2.4s response time</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Globe/network visualization left -->
+  <g transform="translate(50, 180)" opacity="0.5">
+    <text x="60" y="-10" font-family="system-ui, sans-serif" font-size="10" fill="#8a9199" text-anchor="middle">Live Crawling</text>
+    <!-- Orbital rings -->
+    <ellipse cx="60" cy="60" rx="55" ry="35" fill="none" stroke="rgba(0,217,146,0.25)" stroke-width="1">
+      <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="20s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="60" cy="60" rx="55" ry="35" fill="none" stroke="rgba(0,168,107,0.15)" stroke-width="1">
+      <animateTransform attributeName="transform" type="rotate" from="90 60 60" to="450 60 60" dur="15s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- Connection nodes -->
+    <circle cx="60" cy="25" r="4" fill="#00d992">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="60" cy="95" r="4" fill="#00a86b">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="5" cy="60" r="4" fill="#00d992">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="115" cy="60" r="4" fill="#00a86b">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Data stream visualization right -->
+  <g transform="translate(680, 140)">
+    <text x="35" y="-10" font-family="system-ui, sans-serif" font-size="10" fill="#8a9199" text-anchor="middle">Processing</text>
+    <!-- Stream bars -->
+    <g opacity="0.6">
+      <rect x="0" y="0" width="3" height="80" rx="1.5" fill="url(#accentGreen)">
+        <animate attributeName="height" values="80;50;80" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;0.9;0.6" dur="3s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="20" y="20" width="3" height="60" rx="1.5" fill="url(#accentGreen)">
+        <animate attributeName="height" values="60;90;60" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="20;5;20" dur="2.5s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="40" y="10" width="3" height="70" rx="1.5" fill="url(#accentGreen)">
+        <animate attributeName="height" values="70;40;70" dur="2s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="60" y="30" width="3" height="50" rx="1.5" fill="url(#accentGreen)">
+        <animate attributeName="height" values="50;80;50" dur="2.8s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="30;15;30" dur="2.8s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+  
+  <!-- Floating particles -->
+  <g opacity="0.5">
+    <circle cx="150" cy="120" r="2.5" fill="#00d992">
+      <animate attributeName="cy" values="120;100;120" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="650" cy="380" r="3" fill="#00a86b">
+      <animate attributeName="cy" values="380;360;380" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.7;0.4" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="750" cy="80" r="2" fill="#00d992">
+      <animate attributeName="cy" values="80;65;80" dur="6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

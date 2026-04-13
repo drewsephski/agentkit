@@ -12,11 +12,11 @@ export function CompanyShowcase() {
 			<p className="font-medium text-muted-foreground">
 				Trusted by fast-growing startups
 			</p>
-			<div className="z-20 grid w-full max-w-7xl grid-cols-2 items-center justify-center overflow-hidden border-border border-y md:grid-cols-4">
+			<div className="z-20 grid w-full max-w-7xl grid-cols-2 items-center justify-center overflow-hidden border-white/[0.08] border-y md:grid-cols-4">
 				{companyShowcase.companyLogos.map((logo) => (
 					<Link
 						href="#"
-						className="group relative flex h-28 w-full items-center justify-center p-4 before:absolute before:top-0 before:-left-1 before:z-10 before:h-screen before:w-px before:bg-border before:content-[''] after:absolute after:-top-1 after:left-0 after:z-10 after:h-px after:w-screen after:bg-border after:content-['']"
+						className="group relative flex h-28 w-full items-center justify-center p-4 transition-all duration-300 before:absolute before:top-0 before:-left-1 before:z-10 before:h-screen before:w-px before:bg-white/[0.08] before:content-[''] after:absolute after:-top-1 after:left-0 after:z-10 after:h-px after:w-screen after:bg-white/[0.08] after:content-[''] hover:bg-white/[0.03]"
 						key={logo.id}
 					>
 						<div className="0.84, 0.44, 1)] flex h-full w-full translate-y-0 items-center justify-center transition-all duration-200 duration-300 [cubic-bezier(0.165, group-hover:-translate-y-4">

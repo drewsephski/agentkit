@@ -23,7 +23,7 @@ export function FeatureSection() {
 					collapseDelay={5000}
 					linePosition="bottom"
 					featureItems={items}
-					lineColor="bg-secondary"
+					lineColor="bg-primary"
 				/>
 			</div>
 		</section>

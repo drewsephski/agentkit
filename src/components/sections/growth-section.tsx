@@ -13,8 +13,8 @@ export function GrowthSection() {
 		>
 			<div className="relative mx-5 border-x md:mx-10">
 				{/* Decorative borders */}
-				<div className="absolute top-0 -left-4 h-full w-4 bg-[size:10px_10px] text-gray-950/5 [background-image:repeating-linear-gradient(315deg,currentColor_0_1px,#0000_0_50%)] md:-left-14 md:w-14"></div>
-				<div className="absolute top-0 -right-4 h-full w-4 bg-[size:10px_10px] text-gray-950/5 [background-image:repeating-linear-gradient(315deg,currentColor_0_1px,#0000_0_50%)] md:-right-14 md:w-14"></div>
+				<div className="absolute top-0 -left-4 h-full w-4 bg-[size:10px_10px] text-white/[0.03] [background-image:repeating-linear-gradient(315deg,currentColor_0_1px,#0000_0_50%)] md:-left-14 md:w-14"></div>
+				<div className="absolute top-0 -right-4 h-full w-4 bg-[size:10px_10px] text-white/[0.03] [background-image:repeating-linear-gradient(315deg,currentColor_0_1px,#0000_0_50%)] md:-right-14 md:w-14"></div>
 
 				{/* Section Header */}
 				<SectionHeader>

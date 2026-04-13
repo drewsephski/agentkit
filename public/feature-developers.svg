@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <!-- Green accent palette -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050507"/>
+      <stop offset="50%" stop-color="#0a0a0c"/>
+      <stop offset="100%" stop-color="#050507"/>
+    </linearGradient>
+    
+    <radialGradient id="greenGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00d992" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#00a86b" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00d992" stop-opacity="0"/>
+    </radialGradient>
+    
+    <linearGradient id="glassSurface" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.06)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.02)"/>
+    </linearGradient>
+    
+    <linearGradient id="accentGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d992"/>
+      <stop offset="100%" stop-color="#00a86b"/>
+    </linearGradient>
+    
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Transparent background - no fill -->
+  
+  <!-- Central green glow -->
+  <ellipse cx="400" cy="225" rx="320" ry="200" fill="url(#greenGlow)" filter="url(#softGlow)"/>
+  
+  <!-- Title text -->
+  <text x="400" y="40" font-family="system-ui, sans-serif" font-size="18" fill="#00d992" font-weight="600" text-anchor="middle">Developer-First Architecture</text>
+  <text x="400" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#8a9199" text-anchor="middle">Built with modern tools and frameworks</text>
+  
+  <!-- Floating nodes -->
+  <g opacity="0.3">
+    <circle cx="70" cy="70" r="4" fill="#00d992">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-5; 0,0" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="740" cy="90" r="5" fill="#00a86b">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,7; 0,0" dur="4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Main Code Editor -->
+  <g transform="translate(140, 75)">
+    <!-- Outer glow -->
+    <rect x="-6" y="-6" width="532" height="342" rx="20" fill="rgba(0,217,146,0.1)" filter="url(#softGlow)"/>
+    
+    <!-- Editor frame -->
+    <rect x="0" y="0" width="520" height="330" rx="14" fill="rgba(10,10,12,0.9)" stroke="rgba(0,217,146,0.2)" stroke-width="1.5"/>
+    <rect x="0" y="0" width="520" height="330" rx="14" fill="url(#glassSurface)"/>
+    
+    <!-- Top highlight -->
+    <path d="M14 1 H506" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-linecap="round"/>
+    
+    <!-- Title bar -->
+    <rect x="0" y="0" width="520" height="44" rx="14" fill="rgba(5,5,7,0.7)"/>
+    <rect x="0" y="30" width="520" height="18" fill="rgba(5,5,7,0.7)"/>
+    
+    <!-- Window controls -->
+    <circle cx="22" cy="22" r="7" fill="#f87171" opacity="0.9"/>
+    <circle cx="44" cy="22" r="7" fill="#fbbf24" opacity="0.9"/>
+    <circle cx="66" cy="22" r="7" fill="#4ade80" opacity="0.9"/>
+    
+    <!-- File tabs -->
+    <g transform="translate(110, 10)">
+      <!-- Active tab -->
+      <rect x="0" y="0" width="110" height="34" rx="8" fill="rgba(0,217,146,0.12)" stroke="rgba(0,217,146,0.25)" stroke-width="1"/>
+      <text x="15" y="23" font-family="SFMono-Regular, monospace" font-size="11" fill="#f2f2f2" font-weight="500">page.tsx</text>
+      <!-- Inactive tabs -->
+      <rect x="115" y="4" width="90" height="30" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <text x="128" y="23" font-family="SFMono-Regular, monospace" font-size="10" fill="#6b7280">api.ts</text>
+      <rect x="210" y="4" width="100" height="30" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <text x="223" y="23" font-family="SFMono-Regular, monospace" font-size="10" fill="#6b7280">agent.ts</text>
+    </g>
+    
+    <!-- Code area with line numbers -->
+    <g transform="translate(0, 48)">
+      <!-- Line number gutter -->
+      <rect x="0" y="0" width="55" height="282" fill="rgba(5,5,7,0.5)"/>
+      
+      <!-- Line numbers -->
+      <text x="42" y="28" font-family="SFMono-Regular, monospace" font-size="11" fill="#4b5563" text-anchor="end">1</text>
+      <text x="42" y="52" font-family="SFMono-Regular, monospace" font-size="11" fill="#4b5563" text-anchor="end">2</text>
+      <text x="42" y="76" font-family="SFMono-Regular, monospace" font-size="11" fill="#4b5563" text-anchor="end">3</text>
+      <text x="42" y="100" font-family="SFMono-Regular, monospace" font-size="11" fill="#4b5563" text-anchor="end">4</text>
+      <text x="42" y="124" font-family="SFMono-Regular, monospace" font-size="11" fill="#4b5563" text-anchor="end">5</text>
+      <text x="42" y="148" font-family="SFMono-Regular, monospace" font-size="11" fill="#4b5563" text-anchor="end">6</text>
+      <text x="42" y="172" font-family="SFMono-Regular, monospace" font-size="11" fill="#4b5563" text-anchor="end">7</text>
+      <text x="42" y="196" font-family="SFMono-Regular, monospace" font-size="11" fill="#4b5563" text-anchor="end">8</text>
+      <text x="42" y="220" font-family="SFMono-Regular, monospace" font-size="11" fill="#4b5563" text-anchor="end">9</text>
+      
+      <!-- Code content -->
+      <g transform="translate(70, 12)">
+        <!-- Line 1 -->
+        <text x="0" y="12" font-family="SFMono-Regular, monospace" font-size="13" fill="#c084fc">import</text>
+        <text x="60" y="12" font-family="SFMono-Regular, monospace" font-size="13" fill="#f2f2f2">{ AIAgent }</text>
+        <text x="145" y="12" font-family="SFMono-Regular, monospace" font-size="13" fill="#c084fc">from</text>
+        <text x="185" y="12" font-family="SFMono-Regular, monospace" font-size="13" fill="#22c55e">'@ai-sdk/agent'</text>
+        
+        <!-- Line 2 -->
+        <text x="0" y="36" font-family="SFMono-Regular, monospace" font-size="13" fill="#c084fc">import</text>
+        <text x="60" y="36" font-family="SFMono-Regular, monospace" font-size="13" fill="#f2f2f2">{ streamText }</text>
+        <text x="170" y="36" font-family="SFMono-Regular, monospace" font-size="13" fill="#c084fc">from</text>
+        <text x="210" y="36" font-family="SFMono-Regular, monospace" font-size="13" fill="#22c55e">'ai'</text>
+        
+        <!-- Line 4 with highlight -->
+        <rect x="-8" y="52" width="420" height="22" rx="4" fill="rgba(0,217,146,0.1)" stroke="rgba(0,217,146,0.15)" stroke-width="1"/>
+        <text x="0" y="60" font-family="SFMono-Regular, monospace" font-size="13" fill="#60a5fa">const</text>
+        <text x="50" y="60" font-family="SFMono-Regular, monospace" font-size="13" fill="#f2f2f2">agent</text>
+        <text x="100" y="60" font-family="SFMono-Regular, monospace" font-size="13" fill="#60a5fa">=</text>
+        <text x="125" y="60" font-family="SFMono-Regular, monospace" font-size="13" fill="#c084fc">new</text>
+        <text x="160" y="60" font-family="SFMono-Regular, monospace" font-size="13" fill="#f2f2f2" font-weight="600">AIAgent</text>
+        <text x="225" y="60" font-family="SFMono-Regular, monospace" font-size="13" fill="#f2f2f2">({</text>
+        
+        <!-- Line 5 -->
+        <text x="25" y="84" font-family="SFMono-Regular, monospace" font-size="13" fill="#00d992">model:</text>
+        <text x="85" y="84" font-family="SFMono-Regular, monospace" font-size="13" fill="#22c55e">'gpt-4'</text>
+        <text x="150" y="84" font-family="SFMono-Regular, monospace" font-size="13" fill="#6b7280">,</text>
+        
+        <!-- Line 6 -->
+        <text x="25" y="108" font-family="SFMono-Regular, monospace" font-size="13" fill="#00d992">tools:</text>
+        <text x="80" y="108" font-family="SFMono-Regular, monospace" font-size="13" fill="#f2f2f2">[</text>
+        <text x="95" y="108" font-family="SFMono-Regular, monospace" font-size="13" fill="#fbbf24">webSearch</text>
+        <text x="180" y="108" font-family="SFMono-Regular, monospace" font-size="13" fill="#f2f2f2">]</text>
+        
+        <!-- Line 7 -->
+        <text x="0" y="132" font-family="SFMono-Regular, monospace" font-size="13" fill="#f2f2f2">})</text>
+        
+        <!-- Line 9 with cursor -->
+        <text x="0" y="180" font-family="SFMono-Regular, monospace" font-size="13" fill="#c084fc">export</text>
+        <text x="60" y="180" font-family="SFMono-Regular, monospace" font-size="13" fill="#c084fc">const</text>
+        <text x="110" y="180" font-family="SFMono-Regular, monospace" font-size="13" fill="#60a5fa">stream</text>
+        <text x="170" y="180" font-family="SFMono-Regular, monospace" font-size="13" fill="#60a5fa">=</text>
+        <text x="195" y="180" font-family="SFMono-Regular, monospace" font-size="13" fill="#f2f2f2">agent.</text>
+        <text x="250" y="180" font-family="SFMono-Regular, monospace" font-size="13" fill="#fbbf24">stream</text>
+        <text x="310" y="180" font-family="SFMono-Regular, monospace" font-size="13" fill="#f2f2f2">({ ... })</text>
+        
+        <!-- Animated cursor -->
+        <rect x="318" y="168" width="2" height="16" fill="#00d992">
+          <animate attributeName="opacity" values="1;0.2;1" dur="1.2s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+    </g>
+    
+    <!-- Status bar -->
+    <rect x="0" y="306" width="520" height="24" rx="0 0 14 14" fill="rgba(0,217,146,0.08)" stroke="rgba(0,217,146,0.12)" stroke-width="1"/>
+    <circle cx="15" cy="318" r="5" fill="#4ade80"/>
+    <text x="28" y="322" font-family="SFMono-Regular, monospace" font-size="10" fill="#8a9199">TypeScript</text>
+    <text x="110" y="322" font-family="SFMono-Regular, monospace" font-size="10" fill="#6b7280">UTF-8</text>
+    <text x="420" y="322" font-family="SFMono-Regular, monospace" font-size="10" fill="#6b7280">Ready</text>
+  </g>
+  
+  <!-- Tech stack badges -->
+  <g transform="translate(50, 100)" opacity="0.7">
+    <rect x="0" y="0" width="85" height="32" rx="6" fill="rgba(10,10,12,0.8)" stroke="rgba(0,217,146,0.2)" stroke-width="1"/>
+    <text x="12" y="20" font-family="system-ui, sans-serif" font-size="12" fill="#f2f2f2" font-weight="500">Next.js 14</text>
+  </g>
+  
+  <g transform="translate(30, 150)" opacity="0.6">
+    <rect x="0" y="0" width="90" height="32" rx="6" fill="rgba(10,10,12,0.8)" stroke="rgba(0,217,146,0.18)" stroke-width="1"/>
+    <text x="12" y="20" font-family="system-ui, sans-serif" font-size="12" fill="#00d992" font-weight="500">Prisma ORM</text>
+  </g>
+  
+  <g transform="translate(30, 200)" opacity="0.55">
+    <rect x="0" y="0" width="75" height="32" rx="6" fill="rgba(10,10,12,0.8)" stroke="rgba(0,217,146,0.15)" stroke-width="1"/>
+    <text x="12" y="20" font-family="system-ui, sans-serif" font-size="12" fill="#60a5fa" font-weight="500">AI SDK</text>
+  </g>
+  
+  <g transform="translate(665, 90)" opacity="0.7">
+    <rect x="0" y="0" width="105" height="32" rx="6" fill="rgba(10,10,12,0.8)" stroke="rgba(0,217,146,0.2)" stroke-width="1"/>
+    <text x="12" y="20" font-family="system-ui, sans-serif" font-size="12" fill="#f2f2f2" font-weight="500">PostgreSQL</text>
+  </g>
+  
+  <g transform="translate(680, 140)" opacity="0.6">
+    <rect x="0" y="0" width="90" height="32" rx="6" fill="rgba(10,10,12,0.8)" stroke="rgba(0,217,146,0.18)" stroke-width="1"/>
+    <text x="12" y="20" font-family="system-ui, sans-serif" font-size="12" fill="#22c55e" font-weight="500">Tailwind</text>
+  </g>
+  
+  <g transform="translate(695, 190)" opacity="0.55">
+    <rect x="0" y="0" width="75" height="32" rx="6" fill="rgba(10,10,12,0.8)" stroke="rgba(0,217,146,0.15)" stroke-width="1"/>
+    <text x="12" y="20" font-family="system-ui, sans-serif" font-size="12" fill="#fbbf24" font-weight="500">Clerk</text>
+  </g>
+  
+  <!-- Terminal mini window -->
+  <g transform="translate(630, 300)" opacity="0.65">
+    <rect x="0" y="0" width="150" height="110" rx="10" fill="rgba(10,10,12,0.85)" stroke="rgba(0,217,146,0.18)" stroke-width="1"/>
+    <rect x="0" y="0" width="150" height="28" rx="10" fill="rgba(5,5,7,0.7)"/>
+    <rect x="0" y="20" width="150" height="12" fill="rgba(5,5,7,0.7)"/>
+    <text x="12" y="19" font-family="SFMono-Regular, monospace" font-size="9" fill="#6b7280">Terminal</text>
+    <text x="12" y="52" font-family="SFMono-Regular, monospace" font-size="11" fill="#00d992">$</text>
+    <text x="24" y="52" font-family="SFMono-Regular, monospace" font-size="11" fill="#f2f2f2">npm run dev</text>
+    <rect x="12" y="62" width="110" height="5" rx="2" fill="rgba(0,217,146,0.25)">
+      <animate attributeName="width" values="0;110" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="12" y="90" font-family="SFMono-Regular, monospace" font-size="10" fill="#4ade80">Ready on localhost:3000</text>
+  </g>
+  
+  <!-- Connection lines -->
+  <line x1="125" y1="125" x2="140" y2="175" stroke="rgba(0,217,146,0.2)" stroke-width="1" stroke-dasharray="4,4" opacity="0.4">
+    <animate attributeName="stroke-dashoffset" values="0;8" dur="2s" repeatCount="indefinite"/>
+  </line>
+  <line x1="665" y1="110" x2="660" y2="165" stroke="rgba(0,217,146,0.2)" stroke-width="1" stroke-dasharray="4,4" opacity="0.4">
+    <animate attributeName="stroke-dashoffset" values="0;8" dur="2s" repeatCount="indefinite"/>
+  </line>
+</svg>

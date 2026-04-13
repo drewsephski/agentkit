@@ -15,7 +15,7 @@ export function FooterSection() {
 				<div className="mx-0 flex max-w-xs flex-col items-start justify-start gap-y-5">
 					<Link href="/" className="flex items-center gap-2">
 						<Icons.logo className="size-8" />
-						<p className="font-semibold text-primary text-xl">AgentKit</p>
+						<p className="font-semibold text-foreground text-xl">AgentKit</p>
 					</Link>
 					<p className="font-medium text-muted-foreground tracking-tight">
 						{siteConfig.hero.description}
@@ -35,7 +35,7 @@ export function FooterSection() {
 					<div className="flex flex-col items-start justify-start gap-y-5 md:flex-row md:items-center md:justify-between lg:pl-10">
 						{siteConfig.footerLinks.map((column, columnIndex) => (
 							<ul key={columnIndex} className="flex flex-col gap-y-2">
-								<li className="mb-2 font-semibold text-primary text-sm">
+								<li className="mb-2 font-semibold text-foreground text-sm">
 									{column.title}
 								</li>
 								{column.links.map((link) => (
@@ -44,7 +44,7 @@ export function FooterSection() {
 										className="group inline-flex cursor-pointer items-center justify-start gap-1 text-[15px]/snug text-muted-foreground"
 									>
 										<Link href={link.url}>{link.title}</Link>
-										<div className="flex size-4 translate-x-0 transform items-center justify-center rounded border border-border opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100">
+										<div className="flex size-4 translate-x-0 transform items-center justify-center rounded border border-white/[0.08] bg-white/[0.04] opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100">
 											<ChevronRightIcon className="h-4 w-4" />
 										</div>
 									</li>
@@ -63,7 +63,7 @@ export function FooterSection() {
 						className="h-full w-full"
 						squareSize={2}
 						gridGap={tablet ? 2 : 3}
-						color="#6B7280"
+						color="#8a9199"
 						maxOpacity={0.3}
 						flickerChance={0.1}
 					/>

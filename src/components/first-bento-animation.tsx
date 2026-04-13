@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/reasoning";
 
 export function ReasoningBasic() {
-	const reasoningText = `Based on your calendar patterns and preferences, I recommend scheduling the team meeting for Tuesday at 2pm. This time slot has historically had the highest attendance rate, and it avoids conflicts with other recurring meetings.`;
+	const reasoningText = `I'll research the latest renewable energy trends for 2026 and create a professional video for you. Let me search for current data on solar adoption rates, investment statistics, and emerging technologies. This will take just a moment...`;
 
 	return (
 		<Reasoning>
@@ -61,7 +61,7 @@ export function FirstBentoAnimation() {
 			>
 				<div className="flex items-end justify-end gap-3">
 					<motion.div
-						className="ml-auto max-w-[280px] rounded-2xl bg-secondary p-4 text-white shadow-[0_0_10px_rgba(0,0,0,0.05)]"
+						className="ml-auto max-w-[280px] rounded-2xl border border-border bg-accent p-4 text-accent-foreground shadow-sm dark:border-border dark:bg-secondary dark:text-white dark:shadow-[0_0_10px_rgba(0,0,0,0.05)]"
 						initial={{ opacity: 0, x: 20 }}
 						animate={{ opacity: 1, x: 0 }}
 						transition={{
@@ -70,11 +70,11 @@ export function FirstBentoAnimation() {
 						}}
 					>
 						<p className="text-sm">
-							Hey, I need help scheduling a team meeting that works well for
-							everyone. Any suggestions for finding an optimal time slot?
+							Create a 2-minute video about renewable energy trends in 2026. 
+							Include current statistics and make it suitable for LinkedIn.
 						</p>
 					</motion.div>
-					<div className="flex w-fit flex-shrink-0 items-center rounded-full border border-border bg-background">
+					<div className="flex w-fit flex-shrink-0 items-center rounded-full border border-border bg-card shadow-sm">
 						<img
 							src="https://randomuser.me/api/portraits/women/79.jpg"
 							alt="User Avatar"
@@ -83,7 +83,7 @@ export function FirstBentoAnimation() {
 					</div>
 				</div>
 				<div className="flex items-start gap-2">
-					<div className="flex size-10 flex-shrink-0 items-center justify-center rounded-full border border-border bg-background shadow-[0_0_10px_rgba(0,0,0,0.05)]">
+					<div className="flex size-10 flex-shrink-0 items-center justify-center rounded-full border border-border bg-card shadow-sm dark:shadow-[0_0_10px_rgba(0,0,0,0.05)]">
 						<Icons.logo className="size-4" />
 					</div>
 
@@ -92,7 +92,7 @@ export function FirstBentoAnimation() {
 							{!shouldAnimate ? (
 								<motion.div
 									key="dots"
-									className="absolute top-0 left-0 rounded-2xl border border-border bg-background p-4"
+									className="absolute top-0 left-0 rounded-2xl border border-border bg-card p-4 shadow-sm"
 									initial={{ opacity: 0, x: -20 }}
 									animate={{ opacity: 1, x: 0 }}
 									exit={{ opacity: 0, x: -10 }}
@@ -105,7 +105,7 @@ export function FirstBentoAnimation() {
 										{[0, 1, 2].map((index) => (
 											<motion.div
 												key={index}
-												className="h-2 w-2 rounded-full bg-primary/50"
+												className="h-2 w-2 rounded-full bg-muted-foreground/30 dark:bg-white/30"
 												animate={{ y: [0, -5, 0] }}
 												transition={{
 													duration: 0.6,
@@ -121,7 +121,7 @@ export function FirstBentoAnimation() {
 								<motion.div
 									key="response"
 									layout
-									className="absolute top-0 left-0 min-w-[220px] rounded-xl border border-border bg-accent p-4 shadow-[0_0_10px_rgba(0,0,0,0.05)] md:min-w-[300px]"
+									className="absolute top-0 left-0 min-w-[220px] rounded-xl border border-border bg-accent p-4 shadow-sm dark:shadow-[0_0_10px_rgba(0,0,0,0.05)] md:min-w-[300px]"
 									initial={{ opacity: 0, x: 10 }}
 									animate={{
 										opacity: 1,

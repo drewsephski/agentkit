@@ -21,24 +21,25 @@ export const TestimonialCard = ({
 }: TestimonialCardProps) => (
 	<div
 		className={cn(
-			"flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4",
-			// light styles
-			"bg-accent",
-			"shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_8px_12px_-4px_rgba(15,12,12,0.08),0px_1px_2px_0px_rgba(15,12,12,0.10)] dark:shadow-[0px_0px_0px_1px_rgba(250,250,250,0.1),0px_0px_0px_1px_#18181B,0px_8px_12px_-4px_rgba(15,12,12,0.3),0px_1px_2px_0px_rgba(15,12,12,0.3)]",
+			"flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-5 rounded-2xl border border-border bg-card/80 p-5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-border/80 hover:bg-accent dark:border-white/[0.08] dark:bg-white/[0.04] dark:shadow-[0px_2px_8px_-2px_rgba(0,0,0,0.1)] dark:hover:border-white/[0.12] dark:hover:bg-white/[0.08]",
 			className,
 		)}
 		{...props}
 	>
-		<div className="select-none font-normal text-primary/90 leading-relaxed">
+		<div className="select-none font-normal text-foreground/90 text-sm leading-relaxed">
 			{description}
 		</div>
 
-		<div className="flex w-full select-none items-center justify-start gap-3.5">
-			<img src={img} alt={name} className="size-8 rounded-full" />
+		<div className="flex w-full select-none items-center justify-start gap-3">
+			<img
+				src={img}
+				alt={name}
+				className="size-8 rounded-full ring-1 ring-border dark:ring-white/[0.1]"
+			/>
 
 			<div>
-				<p className="font-medium text-primary/90">{name}</p>
-				<p className="font-normal text-primary/50 text-xs">{role}</p>
+				<p className="font-medium text-foreground text-sm">{name}</p>
+				<p className="font-normal text-muted-foreground text-xs">{role}</p>
 			</div>
 		</div>
 	</div>

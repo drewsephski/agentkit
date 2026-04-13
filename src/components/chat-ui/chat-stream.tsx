@@ -8,6 +8,7 @@ import {
 	ThumbsUp,
 	Trash,
 } from "lucide-react";
+import { VideoToolsRenderer } from "./video-tools";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -857,6 +858,10 @@ export function ChatStream({ messages }: ChatStreamProps) {
 											})}
 										</div>
 									)}
+
+									{/* Video tools */}
+									<VideoToolsRenderer message={message} index={index} />
+
 									<MessageActions
 										className={cn(
 											"-ml-2.5 flex gap-0 opacity-0 transition-opacity duration-150 group-hover:opacity-100",

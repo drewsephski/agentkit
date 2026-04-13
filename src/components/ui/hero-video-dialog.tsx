@@ -85,15 +85,40 @@ export function HeroVideoDialog({
 				onClick={() => setIsVideoOpen(true)}
 			>
 				{thumbnailSrc ? (
-					<img
-						src={thumbnailSrc}
-						alt={thumbnailAlt}
-						width={1920}
-						height={1080}
-						className="isolate w-full transition-all duration-200 ease-out group-hover:brightness-[0.8]"
-					/>
+					<div className="relative mx-auto aspect-[16/9] h-auto max-h-[80vh] w-full max-w-[1200px] overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800">
+						<img
+							src={thumbnailSrc}
+							alt={thumbnailAlt}
+							width={1920}
+							height={1080}
+							className="h-full w-full object-contain transition-all duration-200 ease-out group-hover:brightness-[0.8]"
+						/>
+						{/* Overlay gradient for better play button contrast */}
+						<div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+					</div>
 				) : (
-					<div className="aspect-video w-full rounded-2xl bg-background" />
+					<div className="relative mx-auto aspect-[16/9] h-auto max-h-[80vh] w-full max-w-[1200px] overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900/20">
+						{/* Animated background pattern */}
+						<div className="absolute inset-0 opacity-20">
+							<div className="absolute inset-0" style={{
+								backgroundImage: `radial-gradient(circle at 2px 2px, rgba(16,185,129,0.3) 1px, transparent 0)`,
+								backgroundSize: '32px 32px'
+							}} />
+						</div>
+						{/* Center content */}
+						<div className="absolute inset-0 flex items-center justify-center">
+							<div className="text-center">
+								<div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 shadow-lg shadow-emerald-500/30">
+									<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+										<circle cx="12" cy="12" r="3" />
+										<path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" />
+									</svg>
+								</div>
+								<p className="text-lg font-semibold text-white">AgentKit</p>
+								<p className="text-sm text-slate-400">Watch Demo</p>
+							</div>
+						</div>
+					</div>
 				)}
 				<div className="absolute inset-0 isolate flex scale-[0.9] items-center justify-center rounded-2xl transition-all duration-200 ease-out group-hover:scale-100">
 					<div className="flex size-28 items-center justify-center rounded-full bg-gradient-to-t from-secondary/20 to-[#ACC3F7/15] backdrop-blur-md">
@@ -123,7 +148,7 @@ export function HeroVideoDialog({
 						<motion.div
 							{...selectedAnimation}
 							transition={{ type: "spring", damping: 30, stiffness: 300 }}
-							className="relative mx-4 aspect-video w-full max-w-4xl md:mx-0"
+							className="relative mx-auto aspect-[16/9] h-auto max-h-[80vh] w-full max-w-[1200px] rounded-2xl"
 						>
 							<motion.button
 								className="absolute -top-16 right-0 cursor-pointer rounded-full bg-neutral-900/50 p-2 text-white text-xl ring-1 backdrop-blur-md transition-all duration-200 ease-out hover:scale-[98%] dark:bg-neutral-100/50 dark:text-black"
@@ -131,13 +156,24 @@ export function HeroVideoDialog({
 							>
 								<XIcon className="size-5" />
 							</motion.button>
-							<div className="relative isolate z-[1] size-full overflow-hidden rounded-2xl border-2 border-white">
-								<iframe
-									src={videoSrc}
-									className="size-full"
-									allowFullScreen
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-								></iframe>
+							<div className="relative isolate z-[1] h-full w-full overflow-hidden rounded-2xl border-2 border-white bg-black">
+								{videoSrc.includes("youtube.com") || videoSrc.includes("youtu.be") ? (
+									<iframe
+										src={videoSrc}
+										className="h-full w-full"
+										allowFullScreen
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									/>
+								) : (
+									<video
+										src={videoSrc}
+										className="h-full w-full object-contain"
+										controls
+										autoPlay
+										playsInline
+										controlsList="nodownload"
+									/>
+								)}
 							</div>
 						</motion.div>
 					</motion.div>

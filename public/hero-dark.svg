@@ -1,0 +1,318 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Refined grid pattern -->
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255, 255, 255, 0.015)" stroke-width="0.5"/>
+    </pattern>
+    
+    <!-- Rich background gradient - darker to match landing page -->
+    <radialGradient id="bgGradient" cx="50%" cy="0%" r="100%">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="50%" stop-color="#050505"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    
+    <!-- Sophisticated card gradient -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="50%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#070a0f"/>
+    </linearGradient>
+    
+    <!-- Vibrant video gradient -->
+    <linearGradient id="videoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="30%" stop-color="#10b981"/>
+      <stop offset="60%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    
+    <!-- Animated gradient for active elements -->
+    <linearGradient id="activeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="50%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    
+    <!-- Frame thumbnail gradient -->
+    <linearGradient id="frameGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1c2128"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    
+    <!-- Premium shadow filter -->
+    <filter id="premiumShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="25" stdDeviation="50" flood-color="rgba(0,0,0,0.6)"/>
+    </filter>
+    
+    <!-- Inner depth filter -->
+    <filter id="innerDepth" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="25" result="blur"/>
+      <feOffset dx="0" dy="0" result="offsetBlur"/>
+      <feComposite in="offsetBlur" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff"/>
+      <feFlood flood-color="#000000" flood-opacity="0.8" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="shadowDiff" operator="in" result="innerShadow"/>
+      <feMerge>
+        <feMergeNode in="SourceGraphic"/>
+        <feMergeNode in="innerShadow"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Emerald glow filter -->
+    <filter id="emeraldGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feFlood flood-color="#10b981" flood-opacity="0.4" result="glowColor"/>
+      <feComposite in="glowColor" in2="blur" operator="in" result="softGlow"/>
+      <feMerge>
+        <feMergeNode in="softGlow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Logo gradient -->
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    
+    <!-- Subtle noise texture -->
+    <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.03"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  
+  <!-- Background layers -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+  <rect width="1920" height="1080" filter="url(#noise)"/>
+  
+  <!-- Subtle atmospheric lighting orbs - reduced opacity for darker feel -->
+  <circle cx="150" cy="150" r="500" fill="rgba(16, 185, 129, 0.04)" filter="blur(150px)"/>
+  <circle cx="1750" cy="900" r="600" fill="rgba(6, 182, 212, 0.03)" filter="blur(180px)"/>
+  <circle cx="960" cy="540" r="400" fill="rgba(16, 185, 129, 0.02)" filter="blur(120px)"/>
+  
+  <!-- Main Interface Container -->
+  <g transform="translate(460, 80)">
+    <!-- Card shadow and base -->
+    <rect x="0" y="0" width="1000" height="700" rx="28" fill="#0d1117" filter="url(#premiumShadow)"/>
+    <rect x="0" y="0" width="1000" height="700" rx="28" fill="url(#cardGradient)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    
+    <!-- Top highlight edge -->
+    <rect x="2" y="2" width="996" height="696" rx="26" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    
+    <!-- Header section -->
+    <rect x="0" y="0" width="1000" height="72" rx="28" fill="#161b22"/>
+    <rect x="0" y="48" width="1000" height="24" fill="#161b22"/>
+    <rect x="24" y="70" width="952" height="1" fill="rgba(255,255,255,0.08)"/>
+    
+    <!-- Logo with icon -->
+    <g transform="translate(28, 20)">
+      <rect x="0" y="0" width="36" height="36" rx="10" fill="url(#logoGradient)" filter="url(#emeraldGlow)"/>
+      <circle cx="18" cy="18" r="5" fill="white"/>
+      <path d="M18 10v4m0 8v4m9-8h-4m-10 0H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    <text x="76" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17" font-weight="600" fill="#f0f6fc" letter-spacing="-0.3">AgentKit Video Studio</text>
+    
+    <!-- Status badge with pulse -->
+    <g transform="translate(810, 20)">
+      <rect x="0" y="0" width="150" height="36" rx="18" fill="rgba(16, 185, 129, 0.12)" stroke="#10b981" stroke-width="1"/>
+      <circle cx="24" cy="18" r="5" fill="#10b981"/>
+      <circle cx="24" cy="18" r="5" fill="#10b981" opacity="0.4">
+        <animate attributeName="r" values="5;10;5" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.6;0;0.6" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="38" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="500" fill="#34d399">Generating</text>
+    </g>
+    
+    <!-- Video Preview Area -->
+    <g transform="translate(24, 88)">
+      <rect x="0" y="0" width="680" height="420" rx="16" fill="#070a0f" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+      
+      <!-- Video content -->
+      <rect x="16" y="16" width="648" height="388" rx="12" fill="url(#videoGradient)"/>
+      
+      <!-- Dynamic wave visualization -->
+      <g opacity="0.4" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M16 210 Q80 160, 160 210 T320 210 T480 210 T640 210 T664 210">
+          <animate attributeName="d" values="M16 210 Q80 160, 160 210 T320 210 T480 210 T640 210 T664 210;M16 210 Q80 260, 160 210 T320 210 T480 210 T640 210 T664 210;M16 210 Q80 160, 160 210 T320 210 T480 210 T640 210 T664 210" dur="4s" repeatCount="indefinite"/>
+        </path>
+        <path d="M16 240 Q80 190, 160 240 T320 240 T480 240 T640 240 T664 240" opacity="0.6">
+          <animate attributeName="d" values="M16 240 Q80 190, 160 240 T320 240 T480 240 T640 240 T664 240;M16 240 Q80 290, 160 240 T320 240 T480 240 T640 240 T664 240;M16 240 Q80 190, 160 240 T320 240 T480 240 T640 240 T664 240" dur="4s" repeatCount="indefinite" begin="0.5s"/>
+        </path>
+        <path d="M16 270 Q80 220, 160 270 T320 270 T480 270 T640 270 T664 270" opacity="0.3">
+          <animate attributeName="d" values="M16 270 Q80 220, 160 270 T320 270 T480 270 T640 270 T664 270;M16 270 Q80 320, 160 270 T320 270 T480 270 T640 270 T664 270;M16 270 Q80 220, 160 270 T320 270 T480 270 T640 270 T664 270" dur="4s" repeatCount="indefinite" begin="1s"/>
+        </path>
+      </g>
+      
+      <!-- Video info overlay -->
+      <rect x="40" y="340" width="320" height="64" rx="14" fill="rgba(7, 10, 15, 0.95)"/>
+      <text x="60" y="370" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="600" fill="#f0f6fc">The Future of AI Agents</text>
+      <text x="60" y="392" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#7d8590">Generated by AgentKit • 2:34</text>
+      
+      <!-- Play button -->
+      <g transform="translate(340, 210)">
+        <circle cx="0" cy="0" r="56" fill="rgba(7, 10, 15, 0.85)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+        <circle cx="0" cy="0" r="56" fill="none" stroke="url(#activeGradient)" stroke-width="2" opacity="0.5">
+          <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="8s" repeatCount="indefinite"/>
+        </circle>
+        <path d="M-18 -22 L22 0 L-18 22 Z" fill="white"/>
+      </g>
+    </g>
+    
+    <!-- Timeline section -->
+    <g transform="translate(24, 520)">
+      <rect x="0" y="0" width="680" height="56" rx="14" fill="#0d1117"/>
+      <rect x="20" y="20" width="640" height="16" rx="8" fill="#21262d"/>
+      <rect x="20" y="20" width="480" height="16" rx="8" fill="url(#activeGradient)"/>
+      <circle cx="500" cy="28" r="10" fill="#34d399" stroke="#0d1117" stroke-width="3" filter="url(#emeraldGlow)"/>
+      <text x="20" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#7d8590">1:48</text>
+      <text x="640" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#7d8590">2:34</text>
+    </g>
+    
+    <!-- Playback controls -->
+    <g transform="translate(324, 588)">
+      <circle cx="0" cy="0" r="22" fill="#21262d"/>
+      <path d="M-8 0 L8 0" stroke="#7d8590" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="50" cy="0" r="24" fill="#10b981" filter="url(#emeraldGlow)"/>
+      <path d="M42 -8 L42 8 M58 -8 L58 8" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="100" cy="0" r="22" fill="#21262d"/>
+      <path d="M92 0 L108 0" stroke="#7d8590" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Settings Panel -->
+    <g transform="translate(720, 88)">
+      <rect x="0" y="0" width="256" height="520" rx="16" fill="#0d1117" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <text x="20" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#f0f6fc">Generation Settings</text>
+      
+      <!-- Setting items -->
+      <g transform="translate(16, 56)">
+        <rect x="0" y="0" width="224" height="48" rx="10" fill="#161b22"/>
+        <text x="14" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#7d8590">Resolution</text>
+        <text x="180" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500" fill="#f0f6fc">4K UHD</text>
+      </g>
+      
+      <g transform="translate(16, 112)">
+        <rect x="0" y="0" width="224" height="48" rx="10" fill="#161b22"/>
+        <text x="14" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#7d8590">Duration</text>
+        <text x="190" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500" fill="#f0f6fc">2:34</text>
+      </g>
+      
+      <g transform="translate(16, 168)">
+        <rect x="0" y="0" width="224" height="48" rx="10" fill="#161b22"/>
+        <text x="14" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#7d8590">Style</text>
+        <text x="165" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500" fill="#f0f6fc">Cinematic</text>
+      </g>
+      
+      <g transform="translate(16, 224)">
+        <rect x="0" y="0" width="224" height="48" rx="10" fill="#161b22"/>
+        <text x="14" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#7d8590">Voice</text>
+        <text x="175" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500" fill="#f0f6fc">Natural</text>
+      </g>
+      
+      <!-- Progress section -->
+      <g transform="translate(16, 296)">
+        <text x="0" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#f0f6fc">Progress</text>
+        <rect x="0" y="32" width="224" height="10" rx="5" fill="#21262d"/>
+        <rect x="0" y="32" width="180" height="10" rx="5" fill="url(#activeGradient)"/>
+        <text x="0" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#34d399" font-weight="500">80% • Rendering frames...</text>
+      </g>
+      
+      <!-- Action buttons -->
+      <g transform="translate(16, 380)">
+        <rect x="0" y="0" width="108" height="44" rx="10" fill="#21262d"/>
+        <text x="54" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="500" fill="#f0f6fc" text-anchor="middle">Preview</text>
+        
+        <rect x="116" y="0" width="108" height="44" rx="10" fill="#10b981" filter="url(#emeraldGlow)"/>
+        <text x="170" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="600" fill="#020408" text-anchor="middle">Export</text>
+      </g>
+    </g>
+    
+    <!-- Frame thumbnails -->
+    <g transform="translate(24, 620)">
+      <rect x="0" y="0" width="952" height="60" rx="14" fill="#0d1117" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <text x="16" y="-14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="600" fill="#f0f6fc">Generated Frames</text>
+      
+      <g transform="translate(16, 8)">
+        <rect x="0" y="0" width="96" height="44" rx="8" fill="url(#frameGradient)" stroke="rgba(255,255,255,0.06)"/>
+        <text x="48" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" fill="#7d8590" text-anchor="middle">00:00</text>
+        
+        <rect x="108" y="0" width="96" height="44" rx="8" fill="url(#frameGradient)" stroke="rgba(255,255,255,0.06)"/>
+        <text x="156" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" fill="#7d8590" text-anchor="middle">00:30</text>
+        
+        <rect x="216" y="0" width="96" height="44" rx="8" fill="url(#frameGradient)" stroke="rgba(255,255,255,0.06)"/>
+        <text x="264" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" fill="#7d8590" text-anchor="middle">01:00</text>
+        
+        <rect x="324" y="0" width="96" height="44" rx="8" fill="url(#videoGradient)" stroke="#10b981" stroke-width="2"/>
+        <text x="372" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" fill="white" font-weight="500" text-anchor="middle">01:30</text>
+        <rect x="324" y="0" width="96" height="44" rx="8" fill="none" stroke="#10b981" stroke-width="2" opacity="0.5">
+          <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+        </rect>
+        
+        <rect x="432" y="0" width="96" height="44" rx="8" fill="url(#frameGradient)" stroke="rgba(255,255,255,0.06)"/>
+        <text x="480" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" fill="#7d8590" text-anchor="middle">02:00</text>
+        
+        <rect x="540" y="0" width="96" height="44" rx="8" fill="url(#frameGradient)" stroke="rgba(255,255,255,0.06)"/>
+        <text x="588" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" fill="#7d8590" text-anchor="middle">02:34</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Floating feature cards -->
+  <g transform="translate(40, 200)">
+    <rect x="0" y="0" width="200" height="160" rx="18" fill="#161b22" filter="url(#premiumShadow)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <rect x="2" y="2" width="196" height="156" rx="16" fill="none" stroke="rgba(16, 185, 129, 0.2)" stroke-width="1"/>
+    <text x="20" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#f0f6fc">Video Engines</text>
+    <g transform="translate(20, 60)">
+      <circle cx="8" cy="8" r="7" fill="url(#logoGradient)"/>
+      <text x="24" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#7d8590">Remotion</text>
+    </g>
+    <g transform="translate(20, 90)">
+      <circle cx="8" cy="8" r="7" fill="url(#logoGradient)"/>
+      <text x="24" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#7d8590">FFmpeg</text>
+    </g>
+    <g transform="translate(20, 120)">
+      <circle cx="8" cy="8" r="7" fill="url(#logoGradient)"/>
+      <text x="24" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#7d8590">WebGL</text>
+    </g>
+  </g>
+  
+  <g transform="translate(1460, 320)">
+    <rect x="0" y="0" width="220" height="220" rx="18" fill="#161b22" filter="url(#premiumShadow)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <rect x="2" y="2" width="216" height="216" rx="16" fill="none" stroke="rgba(16, 185, 129, 0.2)" stroke-width="1"/>
+    <text x="20" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#f0f6fc">AI Capabilities</text>
+    <g transform="translate(20, 60)">
+      <circle cx="8" cy="8" r="7" fill="url(#logoGradient)"/>
+      <text x="24" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#7d8590">Chat Interface</text>
+    </g>
+    <g transform="translate(20, 90)">
+      <circle cx="8" cy="8" r="7" fill="url(#logoGradient)"/>
+      <text x="24" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#7d8590">Web Search</text>
+    </g>
+    <g transform="translate(20, 120)">
+      <circle cx="8" cy="8" r="7" fill="url(#logoGradient)"/>
+      <text x="24" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#7d8590">Script Generation</text>
+    </g>
+    <g transform="translate(20, 150)">
+      <circle cx="8" cy="8" r="7" fill="url(#logoGradient)"/>
+      <text x="24" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#7d8590">Voice Synthesis</text>
+    </g>
+    <g transform="translate(20, 180)">
+      <circle cx="8" cy="8" r="7" fill="url(#logoGradient)"/>
+      <text x="24" y="12" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#7d8590">Visual Effects</text>
+    </g>
+  </g>
+  
+  <!-- Connection lines with nodes -->
+  <path d="M240 280 C300 280, 350 350, 484 400" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1.5" stroke-dasharray="8,4" fill="none"/>
+  <circle cx="240" cy="280" r="6" fill="#10b981" filter="url(#emeraldGlow)"/>
+  <circle cx="484" cy="400" r="6" fill="#10b981"/>
+  
+  <path d="M1460 430 C1400 430, 1400 480, 1460 480" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1.5" stroke-dasharray="8,4" fill="none"/>
+  <circle cx="1460" cy="430" r="6" fill="#10b981" filter="url(#emeraldGlow)"/>
+  <circle cx="1460" cy="480" r="6" fill="#10b981"/>
+</svg>

@@ -1,4 +1,4 @@
-import { anthropic } from "@ai-sdk/anthropic";
+import { openrouter } from "@openrouter/ai-sdk-provider";
 import { auth } from "@clerk/nextjs/server";
 import {
 	convertToModelMessages,
@@ -9,6 +9,7 @@ import {
 } from "ai";
 import { type NextRequest } from "next/server";
 import { webSearchAgent } from "@/agents/web-search-agent";
+import { videoAgent } from "@/agents/video-agent";
 import { loadChat, saveChat } from "@/lib/chat-store";
 
 export async function POST(request: NextRequest) {
@@ -22,6 +23,7 @@ export async function POST(request: NextRequest) {
 	const body = await request.json();
 	const id = body.id;
 	const searchMode = body.searchMode ?? false; // Default to false if not provided
+	const videoMode = body.videoMode ?? false; // Video mode for video generation
 
 	// #region agent log
 	fetch("http://127.0.0.1:7244/ingest/f534629e-950a-47de-8405-66a055ceff08", {
@@ -30,7 +32,7 @@ export async function POST(request: NextRequest) {
 		body: JSON.stringify({
 			location: "route.ts:23",
 			message: "API request received",
-			data: { id, searchMode, hasSearchMode: body.searchMode !== undefined },
+			data: { id, searchMode, videoMode, hasSearchMode: body.searchMode !== undefined, hasVideoMode: body.videoMode !== undefined },
 			sessionId: "debug-session",
 			runId: "run1",
 			hypothesisId: "G",
@@ -61,16 +63,27 @@ export async function POST(request: NextRequest) {
 	// Convert to model messages for the AI SDK
 	const modelMessages: ModelMessage[] = await convertToModelMessages(messages);
 
-	// Simple logic: use webSearchAgent if searchMode is enabled, otherwise just streamText without tools
-	const streamTextResult = searchMode
-		? webSearchAgent(modelMessages)
-		: streamText({
-				model: anthropic("claude-sonnet-4-5-20250929"),
-				system:
-					"You are a helpful AI assistant. Provide clear, accurate, and concise responses to user questions.",
-				messages: modelMessages,
-				// No tools when searchMode is disabled
-			});
+	// Determine which agent to use based on mode
+	// Priority: videoMode > searchMode > default
+	let streamTextResult;
+	let agentType: string;
+
+	if (videoMode) {
+		streamTextResult = videoAgent(modelMessages, userId, id);
+		agentType = "videoAgent";
+	} else if (searchMode) {
+		streamTextResult = webSearchAgent(modelMessages);
+		agentType = "webSearchAgent";
+	} else {
+		streamTextResult = streamText({
+			model: openrouter("google/gemini-3.1-flash-lite-preview"),
+			system:
+				"You are a helpful AI assistant. Provide clear, accurate, and concise responses to user questions.",
+			messages: modelMessages,
+			// No tools when searchMode is disabled
+		});
+		agentType = "streamText";
+	}
 
 	// #region agent log
 	fetch("http://127.0.0.1:7244/ingest/f534629e-950a-47de-8405-66a055ceff08", {
@@ -81,7 +94,8 @@ export async function POST(request: NextRequest) {
 			message: "Agent selected",
 			data: {
 				searchMode,
-				agentType: searchMode ? "webSearchAgent" : "streamText",
+				videoMode,
+				agentType,
 			},
 			sessionId: "debug-session",
 			runId: "run1",

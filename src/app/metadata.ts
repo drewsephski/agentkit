@@ -23,11 +23,11 @@ export const metadata: Metadata = {
 	],
 	authors: [
 		{
-			name: "Anayat Khan",
-			url: "https://x.com/anayatkhan09",
+			name: "Drew Sepeczi",
+			url: "https://x.com/drewsepeczi",
 		},
 	],
-	creator: "anayatkhan09",
+	creator: "drewsepeczi",
 	openGraph: {
 		type: "website",
 		locale: "en_US",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 		title: "AgentKit - AI Agent Starter Template",
 		description:
 			"Build production-ready AI agents with web search, authentication, and beautiful chat UI. Open-source starter template.",
-		creator: "@anayatkhan09",
+		creator: "@drewsepeczi",
 	},
 	robots: {
 		index: true,

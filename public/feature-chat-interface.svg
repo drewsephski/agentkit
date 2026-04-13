@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050507"/>
+      <stop offset="50%" stop-color="#0a0a0c"/>
+      <stop offset="100%" stop-color="#050507"/>
+    </linearGradient>
+    <radialGradient id="greenGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00d992" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#00a86b" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00d992" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glassSurface" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.06)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.02)"/>
+    </linearGradient>
+    <linearGradient id="accentGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d992"/>
+      <stop offset="100%" stop-color="#00a86b"/>
+    </linearGradient>
+    <linearGradient id="videoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(0,217,146,0.2)"/>
+      <stop offset="100%" stop-color="rgba(0,168,107,0.1)"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <ellipse cx="400" cy="250" rx="320" ry="200" fill="url(#greenGlow)" filter="url(#softGlow)"/>
+
+  <text x="400" y="45" font-family="system-ui, sans-serif" font-size="18" fill="#00d992" font-weight="600" text-anchor="middle">AI Video Generation</text>
+  <text x="400" y="68" font-family="system-ui, sans-serif" font-size="12" fill="#8a9199" text-anchor="middle">Turn research into professional videos automatically</text>
+
+  <g opacity="0.3">
+    <circle cx="70" cy="70" r="4" fill="#00d992">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-5; 0,0" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="730" cy="95" r="5" fill="#00a86b">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,6; 0,0" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="60" cy="420" r="3" fill="#00d992">
+      <animateTransform attributeName="transform" type="translate" values="0,0; -4,0; 0,0" dur="6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g transform="translate(180, 95)">
+    <rect x="-6" y="-6" width="452" height="262" rx="18" fill="rgba(0,217,146,0.1)" filter="url(#softGlow)"/>
+    <rect x="0" y="0" width="440" height="250" rx="14" fill="rgba(10,10,12,0.9)" stroke="rgba(0,217,146,0.2)" stroke-width="1.5"/>
+    <rect x="0" y="0" width="440" height="250" rx="14" fill="url(#glassSurface)"/>
+    <path d="M14 1 H426" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-linecap="round"/>
+
+    <rect x="0" y="0" width="440" height="42" rx="14" fill="rgba(5,5,7,0.6)"/>
+    <rect x="0" y="28" width="440" height="14" fill="rgba(5,5,7,0.6)"/>
+    <circle cx="22" cy="21" r="6" fill="#f87171" opacity="0.9"/>
+    <circle cx="42" cy="21" r="6" fill="#fbbf24" opacity="0.9"/>
+    <circle cx="62" cy="21" r="6" fill="#4ade80" opacity="0.9"/>
+    <text x="220" y="25" font-family="system-ui, sans-serif" font-size="11" fill="#8a9199" text-anchor="middle">Video Studio</text>
+
+    <g transform="translate(20, 55)">
+      <rect x="0" y="0" width="240" height="135" rx="10" fill="url(#videoGrad)" stroke="rgba(0,217,146,0.25)" stroke-width="1.5"/>
+      <rect x="0" y="0" width="240" height="135" rx="10" fill="rgba(0,0,0,0.3)"/>
+
+      <text x="120" y="60" font-family="system-ui, sans-serif" font-size="14" fill="#f2f2f2" font-weight="500" text-anchor="middle">AI Research Video</text>
+      <text x="120" y="78" font-family="system-ui, sans-serif" font-size="11" fill="#8a9199" text-anchor="middle">Generating from web sources...</text>
+
+      <g transform="translate(100, 88)">
+        <circle cx="20" cy="20" r="16" fill="rgba(0,217,146,0.2)" stroke="url(#accentGreen)" stroke-width="2"/>
+        <polygon points="14,12 14,28 26,20" fill="#00d992">
+          <animate attributeName="opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite"/>
+        </polygon>
+      </g>
+
+      <rect x="10" y="126" width="220" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+      <rect x="10" y="126" width="160" height="4" rx="2" fill="url(#accentGreen)">
+        <animate attributeName="width" values="0;160;180;160" dur="3s" repeatCount="indefinite"/>
+      </rect>
+      <text x="225" y="123" font-family="SFMono-Regular, monospace" font-size="9" fill="#00d992" text-anchor="end">75%</text>
+    </g>
+
+    <g transform="translate(270, 55)">
+      <rect x="0" y="0" width="150" height="65" rx="8" fill="rgba(5,5,7,0.6)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <text x="12" y="18" font-family="system-ui, sans-serif" font-size="10" fill="#8a9199">Script</text>
+      <rect x="12" y="26" width="126" height="5" rx="2" fill="rgba(255,255,255,0.1)"/>
+      <rect x="12" y="35" width="100" height="5" rx="2" fill="rgba(255,255,255,0.1)"/>
+      <rect x="12" y="44" width="115" height="5" rx="2" fill="rgba(255,255,255,0.1)"/>
+      <rect x="12" y="53" width="90" height="5" rx="2" fill="rgba(255,255,255,0.1)"/>
+      <rect x="12" y="26" width="80" height="5" rx="2" fill="url(#accentGreen)" opacity="0.6">
+        <animate attributeName="width" values="0;80;100;80" dur="4s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+
+    <g transform="translate(270, 128)">
+      <rect x="0" y="0" width="150" height="62" rx="8" fill="rgba(5,5,7,0.6)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <text x="12" y="18" font-family="system-ui, sans-serif" font-size="10" fill="#8a9199">Visual Assets</text>
+      <g transform="translate(12, 28)">
+        <rect x="0" y="0" width="30" height="20" rx="4" fill="rgba(0,217,146,0.15)" stroke="rgba(0,217,146,0.3)" stroke-width="1"/>
+        <rect x="35" y="0" width="30" height="20" rx="4" fill="rgba(0,217,146,0.15)" stroke="rgba(0,217,146,0.3)" stroke-width="1"/>
+        <rect x="70" y="0" width="30" height="20" rx="4" fill="rgba(0,217,146,0.15)" stroke="rgba(0,217,146,0.3)" stroke-width="1"/>
+        <rect x="0" y="26" width="30" height="3" rx="1" fill="rgba(255,255,255,0.1)"/>
+        <rect x="35" y="26" width="30" height="3" rx="1" fill="rgba(255,255,255,0.1)"/>
+        <rect x="70" y="26" width="30" height="3" rx="1" fill="rgba(255,255,255,0.1)"/>
+      </g>
+    </g>
+
+    <g transform="translate(20, 200)">
+      <rect x="0" y="0" width="400" height="40" rx="8" fill="rgba(5,5,7,0.6)" stroke="rgba(0,217,146,0.2)" stroke-width="1"/>
+      <text x="15" y="25" font-family="system-ui, sans-serif" font-size="12" fill="#8a9199">Create a video about: </text>
+      <text x="155" y="25" font-family="system-ui, sans-serif" font-size="12" fill="#f2f2f2">Latest AI breakthroughs in 2024</text>
+      <rect x="345" y="6" width="60" height="28" rx="6" fill="url(#accentGreen)" opacity="0.9"/>
+      <text x="375" y="24" font-family="system-ui, sans-serif" font-size="11" fill="#050507" font-weight="600" text-anchor="middle">Generate</text>
+    </g>
+  </g>
+
+  <g transform="translate(40, 160)" opacity="0.6">
+    <text x="50" y="-10" font-family="system-ui, sans-serif" font-size="10" fill="#8a9199" text-anchor="middle">Sources</text>
+    <rect x="0" y="0" width="100" height="110" rx="10" fill="rgba(10,10,12,0.7)" stroke="rgba(0,217,146,0.15)" stroke-width="1"/>
+    <rect x="10" y="10" width="80" height="18" rx="4" fill="rgba(0,217,146,0.1)" stroke="rgba(0,217,146,0.2)" stroke-width="1"/>
+    <text x="20" y="23" font-family="system-ui, sans-serif" font-size="9" fill="#00d992">openai.com</text>
+    <rect x="10" y="34" width="80" height="18" rx="4" fill="rgba(0,217,146,0.1)" stroke="rgba(0,217,146,0.2)" stroke-width="1"/>
+    <text x="20" y="47" font-family="system-ui, sans-serif" font-size="9" fill="#00d992">techcrunch.com</text>
+    <rect x="10" y="58" width="80" height="18" rx="4" fill="rgba(0,217,146,0.1)" stroke="rgba(0,217,146,0.2)" stroke-width="1"/>
+    <text x="20" y="71" font-family="system-ui, sans-serif" font-size="9" fill="#00d992">arxiv.org</text>
+    <rect x="10" y="82" width="80" height="18" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <text x="20" y="95" font-family="system-ui, sans-serif" font-size="9" fill="#6b7280">+5 more</text>
+  </g>
+
+  <g transform="translate(640, 160)" opacity="0.6">
+    <text x="60" y="-10" font-family="system-ui, sans-serif" font-size="10" fill="#8a9199" text-anchor="middle">Export Options</text>
+    <rect x="0" y="0" width="120" height="110" rx="10" fill="rgba(10,10,12,0.7)" stroke="rgba(0,217,146,0.15)" stroke-width="1"/>
+    <rect x="15" y="12" width="90" height="24" rx="6" fill="rgba(0,217,146,0.12)" stroke="rgba(0,217,146,0.25)" stroke-width="1"/>
+    <text x="60" y="29" font-family="system-ui, sans-serif" font-size="10" fill="#f2f2f2" text-anchor="middle">HD 1080p</text>
+    <rect x="15" y="42" width="90" height="24" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <text x="60" y="59" font-family="system-ui, sans-serif" font-size="10" fill="#8a9199" text-anchor="middle">Social (9:16)</text>
+    <rect x="15" y="72" width="90" height="24" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <text x="60" y="89" font-family="system-ui, sans-serif" font-size="10" fill="#8a9199" text-anchor="middle">YouTube (16:9)</text>
+  </g>
+</svg>

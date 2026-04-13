@@ -1,15 +1,28 @@
-import { UIDataTypes, UIMessagePart, UITools } from "ai";
+import type { UIDataTypes, UIMessagePart, UITools } from "ai";
 import {
 	ArrowUp,
+	Code,
 	Globe,
+	Image,
 	Mic,
 	MoreHorizontal,
 	Paperclip,
 	Plus,
+	Sparkles,
+	Video,
 	X,
 } from "lucide-react";
-import { ChangeEvent, useRef, useState } from "react";
+import { type ChangeEvent, useRef, useState } from "react";
+import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
 	PromptInput,
 	PromptInputAction,
@@ -33,6 +46,7 @@ export function ChatInput({
 	const [input, setInput] = useState("");
 	const [files, setFiles] = useState<File[]>([]);
 	const [searchMode, setSearchMode] = useState(false);
+	const [videoMode, setVideoMode] = useState(false);
 	const uploadInputRef = useRef<HTMLInputElement>(null);
 
 	const fileToDataURL = (file: File) =>
@@ -71,14 +85,16 @@ export function ChatInput({
 				});
 			}
 
-			// Pass searchMode as metadata in the message
+			// Pass mode flags as metadata in the message
 			onSubmit({
 				parts,
-				// Add searchMode as a custom property that will be passed through
+				// Add mode flags as custom properties that will be passed through
 				searchMode,
+				videoMode,
 			} as {
 				parts: Array<UIMessagePart<UIDataTypes, UITools>>;
 				searchMode: boolean;
+				videoMode: boolean;
 			});
 		} catch (err) {
 			console.error("Failed to process message:", err);
@@ -115,22 +131,27 @@ export function ChatInput({
 					{files.length > 0 && (
 						<div className="flex flex-wrap gap-2 px-4 pt-2">
 							{files.map((file, index) => (
-								<div
+								<motion.div
 									key={index}
-									className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-100 px-3 py-2 text-slate-900 text-sm"
-									onClick={(e) => e.stopPropagation()}
+									initial={{ opacity: 0, scale: 0.9 }}
+									animate={{ opacity: 1, scale: 1 }}
+									transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
+									className="flex items-center gap-2 rounded-lg border border-border bg-muted px-3 py-2 text-foreground text-sm"
+									onClick={(e: React.MouseEvent) => e.stopPropagation()}
 								>
-									<Paperclip className="h-4 w-4 text-slate-600" />
-									<span className="max-w-[160px] truncate">{file.name}</span>
+									<Paperclip className="h-4 w-4 text-muted-foreground" />
+									<span className="max-w-[160px] truncate font-medium">
+										{file.name}
+									</span>
 									<button
 										type="button"
 										onClick={() => handleRemoveFile(index)}
-										className="rounded-full p-1 transition hover:bg-slate-200"
+										className="rounded-full p-1 transition hover:bg-secondary"
 										aria-label={`Remove ${file.name}`}
 									>
-										<X className="h-4 w-4 text-slate-600" />
+										<X className="h-4 w-4 text-muted-foreground" />
 									</button>
-								</div>
+								</motion.div>
 							))}
 						</div>
 					)}
@@ -164,13 +185,34 @@ export function ChatInput({
 
 								<PromptInputAction
 									tooltip={
+										videoMode ? "Disable video mode" : "Enable video mode"
+									}
+								>
+									<Button
+										variant={videoMode ? "default" : "outline"}
+										className="rounded-full"
+										onClick={() => {
+											setVideoMode(!videoMode);
+											if (searchMode) setSearchMode(false);
+										}}
+										type="button"
+									>
+										<Video size={18} />
+										Video
+									</Button>
+								</PromptInputAction>
+								<PromptInputAction
+									tooltip={
 										searchMode ? "Disable web search" : "Enable web search"
 									}
 								>
 									<Button
 										variant={searchMode ? "default" : "outline"}
 										className="rounded-full"
-										onClick={() => setSearchMode(!searchMode)}
+										onClick={() => {
+											setSearchMode(!searchMode);
+											if (videoMode) setVideoMode(false);
+										}}
 										type="button"
 									>
 										<Globe size={18} />
@@ -178,15 +220,65 @@ export function ChatInput({
 									</Button>
 								</PromptInputAction>
 
-								<PromptInputAction tooltip="More actions">
-									<Button
-										variant="outline"
-										size="icon"
-										className="size-9 rounded-full"
-									>
-										<MoreHorizontal size={18} />
-									</Button>
-								</PromptInputAction>
+								<DropdownMenu>
+									<DropdownMenuTrigger asChild>
+										<Button
+											variant="outline"
+											size="icon"
+											className="size-9 rounded-full"
+										>
+											<MoreHorizontal size={18} />
+										</Button>
+									</DropdownMenuTrigger>
+									<DropdownMenuContent align="start" className="w-56">
+										<DropdownMenuLabel>Agent Actions</DropdownMenuLabel>
+										<DropdownMenuSeparator />
+										<DropdownMenuItem
+											onClick={() => {
+												setSearchMode(!searchMode);
+												if (videoMode) setVideoMode(false);
+											}}
+											className="gap-2"
+										>
+											<Globe className="size-4" />
+											<span>Web Search</span>
+											{searchMode && (
+												<span className="ml-auto text-xs text-muted-foreground">
+													Active
+												</span>
+											)}
+										</DropdownMenuItem>
+										<DropdownMenuItem
+											onClick={() => {
+												setVideoMode(!videoMode);
+												if (searchMode) setSearchMode(false);
+											}}
+											className="gap-2"
+										>
+											<Video className="size-4" />
+											<span>Video Mode</span>
+											{videoMode && (
+												<span className="ml-auto text-xs text-muted-foreground">
+													Active
+												</span>
+											)}
+										</DropdownMenuItem>
+										<DropdownMenuItem className="gap-2" disabled>
+											<Code className="size-4" />
+											<span>Code Interpreter</span>
+										</DropdownMenuItem>
+										<DropdownMenuItem className="gap-2" disabled>
+											<Image className="size-4" />
+											<span>Image Generation</span>
+										</DropdownMenuItem>
+										<DropdownMenuSeparator />
+										<DropdownMenuLabel>Capabilities</DropdownMenuLabel>
+										<DropdownMenuItem className="gap-2" disabled>
+											<Sparkles className="size-4" />
+											<span>Deep Research</span>
+										</DropdownMenuItem>
+									</DropdownMenuContent>
+								</DropdownMenu>
 							</div>
 							<div className="flex items-center gap-2">
 								<PromptInputAction tooltip="Voice input">

@@ -31,7 +31,7 @@ export function LoginForm({
 						<FieldLabel htmlFor="password">Password</FieldLabel>
 						<a
 							href="#"
-							className="ml-auto text-sm underline-offset-4 hover:underline"
+							className="ml-auto text-sm transition-colors hover:text-primary"
 						>
 							Forgot your password?
 						</a>
@@ -53,8 +53,8 @@ export function LoginForm({
 						Login with GitHub
 					</Button>
 					<FieldDescription className="text-center">
-						Don&apos;t have an account?{" "}
-						<a href="#" className="underline underline-offset-4">
+						Don't have an account?{" "}
+						<a href="#" className="font-medium transition-colors hover:text-primary">
 							Sign up
 						</a>
 					</FieldDescription>

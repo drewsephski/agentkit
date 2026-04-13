@@ -17,7 +17,7 @@ export const Highlight = ({
 	return (
 		<span
 			className={cn(
-				"p-1 py-0.5 font-medium text-secondary dark:font-semibold",
+				"rounded-md bg-white/[0.08] px-1.5 py-0.5 font-medium text-foreground backdrop-blur-sm",
 				className,
 			)}
 		>
@@ -31,7 +31,7 @@ export const BLUR_FADE_DELAY = 0.15;
 export const siteConfig = {
 	name: "AgentKit",
 	description:
-		"Production-ready starter template for building AI agents with web search capabilities",
+		"AI platform that researches the web and creates professional videos automatically. Start free with 1 preview video.",
 	cta: "Get Started",
 	url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
 	keywords: [
@@ -43,17 +43,16 @@ export const siteConfig = {
 		"AI chat template",
 	],
 	links: {
-		email: "anayat0khan@gmail.com",
-		twitter: "https://x.com/anayatkhan09",
-		discord: "https://discord.com/users/784060394964647936",
-		github: "https://github.com/anayatkhan1/agentkit-starter",
+		email: "drewsepeczi@gmail.com",
+		twitter: "https://x.com/drewsepeczi",
+		github: "https://github.com/drewsephski",
 		instagram: "",
 	},
 	nav: {
 		links: [
 			{ id: 1, name: "Home", href: "#hero" },
 			{ id: 2, name: "Features", href: "#features" },
-			{ id: 3, name: "Pricing", href: "#pricing" },
+			{ id: 3, name: "Pricing", href: "/pricing" },
 			{ id: 4, name: "FAQ", href: "#faq" },
 		],
 	},
@@ -65,25 +64,25 @@ export const siteConfig = {
 				viewBox="0 0 16 16"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
-				className="fill-[#364153] dark:fill-white"
+				className="fill-[var(--primary-foreground)]"
 			>
 				<path d="M7.62758 1.09876C7.74088 1.03404 7.8691 1 7.99958 1C8.13006 1 8.25828 1.03404 8.37158 1.09876L13.6216 4.09876C13.7363 4.16438 13.8316 4.25915 13.8979 4.37347C13.9642 4.48779 13.9992 4.6176 13.9992 4.74976C13.9992 4.88191 13.9642 5.01172 13.8979 5.12604C13.8316 5.24036 13.7363 5.33513 13.6216 5.40076L8.37158 8.40076C8.25828 8.46548 8.13006 8.49952 7.99958 8.49952C7.8691 8.49952 7.74088 8.46548 7.62758 8.40076L2.37758 5.40076C2.26287 5.33513 2.16753 5.24036 2.10123 5.12604C2.03492 5.01172 2 4.88191 2 4.74976C2 4.6176 2.03492 4.48779 2.10123 4.37347C2.16753 4.25915 2.26287 4.16438 2.37758 4.09876L7.62758 1.09876Z" />
 				<path d="M2.56958 7.23928L2.37758 7.34928C2.26287 7.41491 2.16753 7.50968 2.10123 7.624C2.03492 7.73831 2 7.86813 2 8.00028C2 8.13244 2.03492 8.26225 2.10123 8.37657C2.16753 8.49089 2.26287 8.58566 2.37758 8.65128L7.62758 11.6513C7.74088 11.716 7.8691 11.75 7.99958 11.75C8.13006 11.75 8.25828 11.716 8.37158 11.6513L13.6216 8.65128C13.7365 8.58573 13.8321 8.49093 13.8986 8.3765C13.965 8.26208 14 8.13211 14 7.99978C14 7.86745 13.965 7.73748 13.8986 7.62306C13.8321 7.50864 13.7365 7.41384 13.6216 7.34828L13.4296 7.23828L9.11558 9.70328C8.77568 9.89744 8.39102 9.99956 7.99958 9.99956C7.60814 9.99956 7.22347 9.89744 6.88358 9.70328L2.56958 7.23928Z" />
 				<path d="M2.37845 10.5993L2.57045 10.4893L6.88445 12.9533C7.22435 13.1474 7.60901 13.2496 8.00045 13.2496C8.39189 13.2496 8.77656 13.1474 9.11645 12.9533L13.4305 10.4883L13.6225 10.5983C13.7374 10.6638 13.833 10.7586 13.8994 10.8731C13.9659 10.9875 14.0009 11.1175 14.0009 11.2498C14.0009 11.3821 13.9659 11.5121 13.8994 11.6265C13.833 11.7409 13.7374 11.8357 13.6225 11.9013L8.37245 14.9013C8.25915 14.966 8.13093 15 8.00045 15C7.86997 15 7.74175 14.966 7.62845 14.9013L2.37845 11.9013C2.2635 11.8357 2.16795 11.7409 2.10148 11.6265C2.03501 11.5121 2 11.3821 2 11.2498C2 11.1175 2.03501 10.9875 2.10148 10.8731C2.16795 10.7586 2.2635 10.6638 2.37845 10.5983V10.5993Z" />
 			</svg>
 		),
-		badge: "Open Source Starter Template",
-		title: "Build AI Agents with Web Search in Minutes",
+		badge: "AI Video + Web Research Platform",
+		title: "Create AI Videos Powered by Real-Time Research",
 		description:
-			"Production-ready starter template for building AI chat applications with web search capabilities. Includes authentication, database persistence, and a beautiful UI—everything you need to launch fast.",
+			"Transform any topic into stunning AI-generated videos. Our agents research the web for current data, then create professional videos—in minutes, not hours.",
 		cta: {
 			primary: {
-				text: "View on GitHub",
-				href: "https://github.com/anayatkhan1/agentkit-starter",
+				text: "Create Your First Video",
+				href: "/chat",
 			},
 			secondary: {
-				text: "Try Demo",
-				href: "/chat",
+				text: "View on GitHub",
+				href: "https://github.com/drewsephski",
 			},
 		},
 	},
@@ -289,65 +288,68 @@ export const siteConfig = {
 		],
 	},
 	featureSection: {
-		title: "Everything You Need to Build AI Agents",
+		title: "Research. Create. Share.",
 		description:
-			"AgentKit comes with all the essential features to build production-ready AI applications",
+			"From web research to finished video—everything you need to create AI-powered content at scale",
 		items: [
 			{
 				id: 1,
-				title: "Web Search Agent Built-In",
+				title: "AI-Powered Web Research",
 				content:
-					"Toggle web search on/off with a single click. Your AI agent can search the web for current information, recent events, and up-to-date data when needed.",
-				image:
-					"https://images.unsplash.com/photo-1720371300677-ba4838fa0678?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+					"Your agent searches the live web for current facts, statistics, and trends. Get accurate, up-to-date content for your videos—no outdated information.",
+				image: "/feature-web-search.svg",
 			},
 			{
 				id: 2,
-				title: "Modern Chat Interface",
+				title: "AI Video Generation",
 				content:
-					"Pre-built chat UI with streaming responses, file uploads, message history, and tool call visualization. Built with shadcn/ui and Tailwind CSS.",
-				image:
-					"https://images.unsplash.com/photo-1686170287433-c95faf6d3608?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8fA%3D%3D",
+					"Turn research into professional videos automatically. HD export, customizable templates, and multiple formats ready for any platform.",
+				image: "/feature-chat-interface.svg",
 			},
 			{
 				id: 3,
-				title: "User Authentication Ready",
+				title: "Your Content, Organized",
 				content:
-					"Integrated Clerk authentication with email/password and OAuth support. User-scoped chat history with secure database persistence.",
-				image:
-					"https://images.unsplash.com/photo-1720378042271-60aff1e1c538?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D",
+					"All your research and videos saved in one place. Persistent chat history, video library, and user-scoped projects with secure cloud storage.",
+				image: "/feature-authentication.svg",
 			},
 			{
 				id: 4,
-				title: "Built for Developers",
+				title: "Developer First",
 				content:
-					"TypeScript, Next.js 15, AI SDK, Prisma, and PostgreSQL. Clean architecture, easy to customize, and production-ready from day one.",
-				image:
-					"https://images.unsplash.com/photo-1666882990322-e7f3b8df4f75?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
+					"Built with modern tooling—Next.js, TypeScript, and Tailwind. Fork the repo, customize every component, and self-host when you're ready.",
+				image: "/feature-developers.svg",
 			},
 		],
 	},
 	bentoSection: {
-		title: "Powerful Features Out of the Box",
+		title: "Create Videos in 4 Simple Steps",
 		description:
-			"AgentKit includes everything you need—no need to build from scratch",
+			"Research any topic, generate professional videos, and share them anywhere—no video editing skills required",
 		items: [
 			{
 				id: 1,
 				content: <FirstBentoAnimation />,
-				title: "Intelligent Web Search",
+				title: "1. Research Any Topic",
 				description:
-					"Enable web search when your agent needs current information. Search results are automatically cited and displayed in a beautiful UI.",
+					"Tell the agent what you want a video about. It searches the live web for current facts, trends, and data—automatically.",
 			},
 			{
 				id: 2,
 				content: <SecondBentoAnimation />,
-				title: "Real-time Streaming",
+				title: "2. Review the Research",
 				description:
-					"Streaming responses with tool call visualization. See your agent's search process in real-time with collapsible source citations.",
+					"Watch as your agent gathers sources in real-time. Review citations, verify facts, and refine the direction before creating your video.",
 			},
 			{
 				id: 3,
+				content: <FourthBentoAnimation once={false} />,
+				title: "3. Generate Your Video",
+				description:
+					"Watch your video come to life as the AI researches, writes the script, designs visuals, and renders—automatically in minutes.",
+			},
+			{
+				id: 4,
 				content: (
 					<ThirdBentoAnimation
 						data={[20, 30, 25, 45, 40, 55, 75]}
@@ -356,45 +358,38 @@ export const siteConfig = {
 						]}
 					/>
 				),
-				title: "Persistent Chat History",
+				title: "4. Track Performance",
 				description:
-					"All conversations are automatically saved to PostgreSQL. User-scoped data with Prisma ORM for easy querying and management.",
-			},
-			{
-				id: 4,
-				content: <FourthBentoAnimation once={false} />,
-				title: "Deploy Anywhere",
-				description:
-					"Optimized for Vercel deployment with environment variable management. Includes error handling, loading states, and responsive design.",
+					"Export and share your video anywhere. Then track views, engagement, and performance with built-in analytics.",
 			},
 		],
 	},
 	benefits: [
 		{
 			id: 1,
-			text: "Save hours each week with AI-optimized scheduling.",
+			text: "Create professional videos in minutes, not days.",
 			image: "/Device-6.png",
 		},
 		{
 			id: 2,
-			text: "Reduce scheduling conflicts and double-bookings.",
+			text: "Research current data automatically—no manual searching.",
 			image: "/Device-7.png",
 		},
 		{
 			id: 3,
-			text: "Improve work-life balance with smart time allocation.",
+			text: "Scale from 1 free video to unlimited team production.",
 			image: "/Device-8.png",
 		},
 		{
 			id: 4,
-			text: "Increase productivity with AI-driven time management insights.",
+			text: "Export HD videos ready for any platform or presentation.",
 			image: "/Device-1.png",
 		},
 	],
 	growthSection: {
-		title: "Built for Scale",
+		title: "Grow Your Video Production",
 		description:
-			"Production-ready architecture that scales with your needs—from prototype to enterprise",
+			"From your first video to unlimited creations—scale your content without scaling your team",
 		items: [
 			{
 				id: 1,
@@ -422,7 +417,7 @@ export const siteConfig = {
 								<path
 									fillRule="evenodd"
 									clipRule="evenodd"
-									d="M104.06 3.61671C106.656 1.28763 110.017 0 113.5 0C116.983 0 120.344 1.28763 122.94 3.61671C148.459 26.5711 180.325 41.2118 214.322 45.6008C217.66 46.0312 220.736 47.6398 222.999 50.1383C225.262 52.6369 226.563 55.862 226.67 59.2357C227.947 96.7468 218.612 133.854 199.744 166.267C180.877 198.68 153.248 225.074 120.052 242.398C118.028 243.454 115.779 244.003 113.498 244C111.216 243.997 108.969 243.441 106.948 242.379C73.7524 225.055 46.1231 198.661 27.2556 166.248C8.38807 133.835 -0.947042 96.7279 0.329744 59.2168C0.441295 55.8464 1.74484 52.6258 4.00715 50.1311C6.26946 47.6365 9.34293 46.0306 12.6777 45.6008C46.6725 41.2171 78.5389 26.5832 104.06 3.63565V3.61671Z"
+									d="M104.06 3.61671C106.656 1.28763 110.017 0 113.5 0C116.983 0 120.344 1.28763 122.94 3.61671C148.459 26.5711 180.325 41.2118 214.322 45.6008C217.66 46.0312 220.736 47.6398 222.999 50.1383C225.262 52.6369 226.563 55.862 226.67 59.2357C227.947 96.7468 218.612 133.854 200.689 155.261C183.529 184.723 158.4 208.746 128.209 224.501C126.368 225.462 124.323 225.962 122.248 225.959C120.173 225.956 118.13 225.45 116.291 224.484C86.0997 208.728 60.971 184.723 43.811 155.244C26.6511 125.764 18.1608 92.015 19.322 57.8988C19.4235 54.8334 20.6091 51.9043 22.6666 49.6354C24.7242 47.3665 27.5195 45.906 30.5524 45.5151C61.4706 41.5281 90.4531 28.2076 113.664 7.34787V7.33065Z"
 								/>
 							</svg>
 						</div>
@@ -438,7 +433,7 @@ export const siteConfig = {
 									<path
 										fillRule="evenodd"
 										clipRule="evenodd"
-										d="M113.664 7.33065C116.025 5.21236 119.082 4.04126 122.25 4.04126C125.418 4.04126 128.475 5.21236 130.836 7.33065C154.045 28.2076 183.028 41.5233 213.948 45.5151C216.984 45.9065 219.781 47.3695 221.839 49.6419C223.897 51.9144 225.081 54.8476 225.178 57.916C226.339 92.0322 217.849 125.781 200.689 155.261C183.529 184.74 158.4 208.746 128.209 224.501C126.368 225.462 124.323 225.962 122.248 225.959C120.173 225.956 118.13 225.45 116.291 224.484C86.0997 208.728 60.971 184.723 43.811 155.244C26.6511 125.764 18.1608 92.015 19.322 57.8988C19.4235 54.8334 20.6091 51.9043 22.6666 49.6354C24.7242 47.3665 27.5195 45.906 30.5524 45.5151C61.4706 41.5281 90.4531 28.2186 113.664 7.34787V7.33065Z"
+										d="M113.664 7.33065C116.025 5.21236 119.082 4.04126 122.25 4.04126C125.418 4.04126 128.475 5.21236 130.836 7.33065C154.045 28.2076 183.028 41.5233 213.948 45.5151C216.984 45.9065 219.781 47.3695 221.839 49.6419C223.897 51.9144 225.081 54.8476 225.178 57.916C226.339 92.0322 217.849 125.781 200.689 155.261C183.529 184.74 158.4 208.746 128.209 224.501C126.368 225.462 124.323 225.962 122.248 225.959C120.173 225.956 118.13 225.45 116.291 224.484C86.0997 208.728 60.971 184.723 43.811 155.244C26.6511 125.764 18.1608 92.015 19.322 57.8988C19.4235 54.8334 20.6091 51.9043 22.6666 49.6354C24.7242 47.3665 27.5195 45.906 30.5524 45.5151C61.4706 41.5281 90.4531 28.2076 113.664 7.34787V7.33065Z"
 									/>
 								</g>
 								<defs>
@@ -688,23 +683,23 @@ export const siteConfig = {
 
 				title: "Ready to Scale",
 				description:
-					"PostgreSQL database, efficient API routes, and optimized streaming. Handle thousands of users without breaking a sweat.",
+					"Start free with 1 preview video. Scale to 10 HD videos/month (Starter) or go unlimited with your team (Pro). No surprises.",
 			},
 		],
 	},
 	quoteSection: {
 		quote:
-			"AgentKit saved us weeks of development time. We had a working AI agent with web search in hours, not months. The codebase is clean, well-structured, and easy to customize.",
+			"We went from idea to a professional product demo video in under an hour. The AI research feature pulled current market data, and the video looked like we spent weeks on it. Game-changer for our marketing.",
 		author: {
 			name: "Sarah Chen",
-			role: "Founder, AI Startup",
+			role: "Marketing Director, SaaS Startup",
 			image: "https://randomuser.me/api/portraits/women/91.jpg",
 		},
 	},
 	pricing: {
-		title: "Pricing that scales with you",
+		title: "AI agents that research and create videos",
 		description:
-			"Whichever plan you pick, it's free until you love your docs. That's our promise.",
+			"Start with web research for free. Upgrade to unlock AI video generation.",
 		pricingItems: [
 			{
 				name: "Free",
@@ -713,53 +708,50 @@ export const siteConfig = {
 				period: "month",
 				yearlyPrice: "$0",
 				features: [
-					"Custom domain",
-					"SEO-optimizations",
-					"Auto-generated API docs",
-					"Built-in components library",
+					"Web search enabled AI chat",
+					"Streaming responses",
+					"Persistent chat history",
+					"Community support",
+					"Preview video generation (1)",
 				],
-				description: "Perfect for individual users",
+				description: "Perfect for exploring AgentKit",
 				buttonText: "Start Free",
-				buttonColor: "bg-accent text-primary",
 				isPopular: false,
 			},
 			{
-				name: "Startup",
+				name: "Starter",
 				href: "#",
-				price: "$12",
+				price: "$29",
 				period: "month",
-				yearlyPrice: "$120",
+				yearlyPrice: "$290",
 				features: [
-					"Custom domain",
-					"SEO-optimizations",
-					"Auto-generated API docs",
-					"Built-in components library",
-					"E-commerce integration",
-					"User authentication system",
-					"Multi-language support",
-					"Real-time collaboration tools",
+					"Everything in Free",
+					"10 AI video generations/month",
+					"HD video export",
+					"Priority web search",
+					"Email support",
 				],
-				description: "Ideal for professionals and small teams",
-				buttonText: "Upgrade to Pro",
-				buttonColor: "bg-secondary text-white",
+				description: "For creators getting started",
+				buttonText: "Get Started",
 				isPopular: true,
 			},
 			{
-				name: "Enterprise",
+				name: "Pro",
 				href: "#",
-				price: "$24",
+				price: "$79",
 				period: "month",
-				yearlyPrice: "$240",
+				yearlyPrice: "$790",
 				features: [
-					"Custom domain",
-					"SEO-optimizations",
-					"Auto-generated API docs",
-					"Built-in components librarys",
-					"Real-time collaboration tools",
+					"Everything in Starter",
+					"Unlimited AI video generations",
+					"Custom video templates",
+					"Team seats (5 members)",
+					"API access",
+					"Priority support",
+					"White-label options",
 				],
-				description: "Best for large teams and enterprise-level organizations",
-				buttonText: "Contact Sales",
-				buttonColor: "bg-primary text-primary-foreground",
+				description: "For professionals and teams",
+				buttonText: "Get Pro",
 				isPopular: false,
 			},
 		],
@@ -768,86 +760,86 @@ export const siteConfig = {
 		{
 			id: "1",
 			name: "Alex Rivera",
-			role: "Full Stack Developer",
+			role: "Content Creator",
 			img: "https://randomuser.me/api/portraits/men/91.jpg",
 			description: (
 				<p>
-					The codebase is incredibly clean and well-structured.
+					I used to spend days researching and editing videos.
 					<Highlight>
-						I was able to customize the web search behavior in minutes.
+						Now I create professional content in under 30 minutes.
 					</Highlight>{" "}
-					Perfect starter template for building AI agents.
+					The AI research feature is a game-changer for my channel.
 				</p>
 			),
 		},
 		{
 			id: "2",
 			name: "Samantha Lee",
-			role: "Founder at AI Startup",
+			role: "Marketing Lead, Tech Startup",
 			img: "https://randomuser.me/api/portraits/women/12.jpg",
 			description: (
 				<p>
-					AgentKit helped us launch our AI product in days instead of weeks.
-					<Highlight>The web search integration is seamless!</Highlight> Highly
-					recommend for startups.
+					We create product demo videos weekly now instead of monthly.
+					<Highlight>The AI pulls current stats and creates videos automatically.</Highlight>{" "}
+					Best investment for our marketing team.
 				</p>
 			),
 		},
 		{
 			id: "3",
 			name: "Raj Patel",
-			role: "CTO at Tech Company",
+			role: "Training Director, Enterprise",
 			img: "https://randomuser.me/api/portraits/men/45.jpg",
 			description: (
 				<p>
-					Production-ready from day one. We deployed to Vercel in minutes.
+					We generate training videos for new hires automatically.
 					<Highlight>
-						The authentication and database setup saved us days.
+						Saves our team 20+ hours every week.
 					</Highlight>{" "}
-					Essential for any developer building AI products.
+					The research accuracy and video quality exceeded expectations.
 				</p>
 			),
 		},
 		{
 			id: "4",
 			name: "Emily Chen",
-			role: "Developer",
+			role: "Social Media Manager",
 			img: "https://randomuser.me/api/portraits/women/83.jpg",
 			description: (
 				<p>
-					The TypeScript types are excellent and the code is well-documented.
-					<Highlight>Easy to extend and customize for our needs.</Highlight>{" "}
-					Best starter template I&apos;ve used.
+					I create 5-10 videos per week for multiple clients.
+					<Highlight>What used to take a full day now takes 2 hours.</Highlight>{" "}
+					The AI research ensures my content is always current and accurate.
 				</p>
 			),
 		},
 		{
 			id: "5",
 			name: "Michael Brown",
-			role: "Founder",
+			role: "Agency Owner",
 			img: "https://randomuser.me/api/portraits/men/1.jpg",
 			description: (
 				<p>
-					The web search feature is exactly what we needed.
+					We deliver video content to clients faster than ever.
 					<Highlight>
-						Our users love seeing real-time search results with citations.
+						The AI research with citations adds credibility our clients love.
 					</Highlight>{" "}
-					Game-changer for our AI product.
+					High-quality videos without the high production costs.
 				</p>
 			),
 		},
 		{
 			id: "6",
 			name: "Linda Wu",
-			role: "Lead Developer",
+			role: "Educational Content Creator",
 			img: "https://randomuser.me/api/portraits/women/5.jpg",
 			description: (
 				<p>
-					Clean architecture makes it easy to add new features.
+					My educational videos now include current data and statistics.
 					<Highlight>
-						The Prisma setup and database migrations are spot on.
+						Students appreciate the accurate, up-to-date information.
 					</Highlight>{" "}
-					Highly recommend.
+					Production time cut by 80%.
 				</p>
 			),
 		},
@@ -898,15 +890,15 @@ export const siteConfig = {
 		{
 			id: "10",
 			name: "Sofia Patel",
-			role: "Startup Founder",
+			role: "Product Marketing Manager",
 			img: "https://randomuser.me/api/portraits/women/73.jpg",
 			description: (
 				<p>
-					AgentKit helped us launch faster than we ever imagined.
+					Our product launch videos now take hours instead of weeks.
 					<Highlight>
-						The web search toggle feature is brilliant—users love it.
+						The AI pulls competitor data and market stats automatically.
 					</Highlight>{" "}
-					Transforming the educational landscape.
+					Best tool for fast-moving marketing teams.
 				</p>
 			),
 		},
@@ -928,15 +920,15 @@ export const siteConfig = {
 		{
 			id: "12",
 			name: "Nadia Ali",
-			role: "Product Manager",
+			role: "YouTube Creator",
 			img: "https://randomuser.me/api/portraits/women/78.jpg",
 			description: (
 				<p>
-					The UI components are beautiful and the UX is polished.
+					The videos look professional and the research is spot-on.
 					<Highlight>
-						Our users love the streaming experience and source citations.
+						My audience loves the current stats and data-driven content.
 					</Highlight>{" "}
-					Great developer and user experience.
+					Channel growth has doubled since I started using AgentKit.
 				</p>
 			),
 		},
@@ -959,55 +951,55 @@ export const siteConfig = {
 	faqSection: {
 		title: "Frequently Asked Questions",
 		description:
-			"Answers to common questions about AgentKit and its features. If you have any other questions, please don't hesitate to contact us.",
+			"Everything you need to know about creating AI videos with AgentKit.",
 		faQitems: [
 			{
 				id: 1,
 				question: "What is AgentKit?",
 				answer:
-					"AgentKit is an open-source starter template for building AI chat applications with web search capabilities. It includes authentication, database persistence, and a production-ready UI built with Next.js and the Vercel AI SDK.",
+					"AgentKit is an AI platform that researches the web and creates professional videos automatically. Start with 1 free preview video, then upgrade to create 10 HD videos/month (Starter) or go unlimited (Pro).",
 			},
 			{
 				id: 2,
-				question: "What technologies does it use?",
+				question: "How does the AI research work?",
 				answer:
-					"Next.js 15, TypeScript, Vercel AI SDK, Prisma, PostgreSQL, Clerk for authentication, shadcn/ui components, and Tailwind CSS.",
+					"Tell the agent your video topic. It searches the live web for current facts, statistics, and trends. Review the sources, then one click generates a professional video with your research.",
 			},
 			{
 				id: 3,
-				question: "How do I get started?",
+				question: "What do I get on the Free plan?",
 				answer:
-					"Clone the repository, set up your environment variables (API keys for Anthropic, Clerk, and database), run migrations, and start developing. Full setup instructions are in the README.",
+					"1 free preview video with web search chat, streaming responses, and persistent chat history. No credit card required. Upgrade anytime to download HD videos and unlock more generations.",
 			},
 			{
 				id: 4,
-				question: "Can I customize the web search behavior?",
+				question: "What's the difference between Starter and Pro?",
 				answer:
-					"Yes! The web search agent prompt and tool configuration are fully customizable. You can modify when and how the agent uses web search in the agent configuration files.",
+					"Starter ($29/mo): 10 HD video generations/month, priority web search, email support. Pro ($79/mo): Unlimited videos, custom templates, 5 team seats, API access, and white-label options.",
 			},
 			{
 				id: 5,
-				question: "Is it production-ready?",
+				question: "Can I use the videos commercially?",
 				answer:
-					"Yes, AgentKit includes error handling, loading states, database persistence, user authentication, and is optimized for deployment on Vercel or any Node.js hosting platform.",
+					"Yes! All videos you create are yours. Use them for marketing, social media, presentations, client work, or any commercial purpose. Pro plans include white-label options.",
 			},
 			{
 				id: 6,
-				question: "What's the license?",
+				question: "How do I get started?",
 				answer:
-					"MIT License - use it for personal or commercial projects, modify it, and distribute it freely.",
+					"Sign up for free, start a chat, and tell the agent what video you want. It will research the topic and create your first preview video. No technical skills or video editing experience needed.",
 			},
 		],
 	},
 	ctaSection: {
 		id: "cta",
-		title: "Start Building Your AI Agent Today",
+		title: "Create Your First AI Video Today",
 		backgroundImage: "/agent-cta-background.png",
 		button: {
-			text: "View on GitHub",
-			href: "https://github.com/anayatkhan1/agentkit-starter",
+			text: "Get Started Free",
+			href: "/chat",
 		},
-		subtext: "Open source • MIT License • Free forever",
+		subtext: "1 free preview video • No credit card required",
 	},
 	footerLinks: [
 		{
