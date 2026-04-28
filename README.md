@@ -4,11 +4,11 @@
 
 # AgentKit
 
-**Build AI agents in hours, not weeks.**
+**The complete AI agent platform. Build, deploy, and scale intelligent agents with voice, video, and real-time capabilities.**
 
-A production-ready starter for AI-powered chat applications with web search, authentication, and beautiful UI.
+From prototype to production in hours—not months. AgentKit gives you everything: multi-modal AI agents, automated video generation, web search, authentication, and a beautiful chat interface.
 
-[Live Demo](https://agentkit-demo.vercel.app) · [Quick Start](#quick-start) · [Documentation](#docs)
+[Live Demo](https://agentkit-demo.vercel.app) · [Quick Start](#quick-start) · [Features](#features)
 
 </div>
 
@@ -23,7 +23,7 @@ A production-ready starter for AI-powered chat applications with web search, aut
 ![Web Search](public/feature-web-search.svg)
 
 **AI-Powered Web Search**
-Real-time web search with source citations. Toggle on/off instantly.
+Real-time web search with source citations. Your agents access current information, news, and data—beyond training cutoffs.
 
 </td>
 <td width="50%">
@@ -31,25 +31,41 @@ Real-time web search with source citations. Toggle on/off instantly.
 ![Chat](public/feature-chat-interface.svg)
 
 **Modern Chat Interface**
-Streaming responses, file uploads, and tool call visualization.
+Streaming responses, file uploads, tool call visualization, and multi-agent conversations with persistent history.
 
 </td>
 </tr>
 <tr>
 <td width="50%">
 
+🎬 **AI Video Generation**
+
+Generate promotional videos, product demos, and social content automatically. Remotion Lambda + Creatomate integration for scalable video rendering.
+
+</td>
+<td width="50%">
+
 ![Auth](public/feature-authentication.svg)
 
 **Secure Authentication**
-Clerk-powered auth with email/password and OAuth support.
+Clerk-powered auth with email/password, OAuth, and organization support. Enterprise-ready security out of the box.
 
 </td>
+</tr>
+<tr>
 <td width="50%">
 
 ![Developer](public/feature-developers.svg)
 
 **Developer First**
-TypeScript, Prisma, clean architecture, easy to customize.
+TypeScript, Prisma, clean architecture. Extensible tool system for adding custom agent capabilities.
+
+</td>
+<td width="50%">
+
+⚡ **Production Ready**
+
+Error handling, loading states, responsive design, and Vercel-optimized. Stripe integration for monetization built-in.
 
 </td>
 </tr>
@@ -86,6 +102,8 @@ Open [localhost:3000](http://localhost:3000)
 ![Tailwind](https://img.shields.io/badge/Tailwind-4-38B2AC?style=flat-square&logo=tailwind-css)
 ![Clerk](https://img.shields.io/badge/Clerk-Auth-6C47FF?style=flat-square)
 ![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?style=flat-square&logo=prisma)
+![Remotion](https://img.shields.io/badge/Remotion-Video-1D4ED8?style=flat-square)
+![Stripe](https://img.shields.io/badge/Stripe-Payments-635BFF?style=flat-square&logo=stripe)
 
 ## Environment
 
@@ -96,14 +114,41 @@ CLERK_SECRET_KEY=
 ANTHROPIC_API_KEY=
 DATABASE_URL=
 
-# Optional
+# Video Generation (Optional)
+REMOTION_AWS_FUNCTION_NAME=      # Lambda function for rendering
+REMOTION_SITE_URL=               # Remotion site deployment URL
+CREATOMATE_API_KEY=              # Alternative video renderer
+
+# Payments (Optional)
+STRIPE_PUBLISHABLE_KEY=
+STRIPE_SECRET_KEY=
+
+# App
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
+
+## Video Generation
+
+AgentKit includes a powerful video generation system for creating promotional content automatically:
+
+```bash
+# Deploy Remotion Lambda for video rendering
+npx remotion lambda functions deploy --timeout=300
+
+# Create your site
+npx remotion lambda sites create
+```
+
+**Supported Video Types:**
+- Product promos with animated scenes
+- Social media shorts (TikTok/Reels format)
+- Hero videos for landing pages
+- Feature showcases with dynamic content
 
 ## Scripts
 
 | Command | Description |
-|---------|-------------|
+| :------ | :---------- |
 | `bun dev` | Start dev server |
 | `bun build` | Production build |
 | `bun lint` | Run Biome linter |
@@ -113,12 +158,31 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 ## Structure
 
 ```
-app/           # Next.js App Router
-agents/        # AI agent implementations
-components/    # React + shadcn/ui
-lib/           # Utilities
-prisma/        # Database schema
-public/        # Assets + videos
+app/                    # Next.js App Router
+├── api/                # API routes (chat, webhooks)
+├── chat/               # Chat interface pages
+agents/                 # AI agents
+├── web-search-agent/   # Search-enabled agent
+│   ├── agent.ts
+│   ├── prompt.ts
+│   └── tools.ts
+├── video-agent/        # Video generation agent
+│   └── tools.ts        # Remotion + Creatomate tools
+components/
+├── chat-ui/            # Chat components
+├── sections/           # Landing page sections
+└── ui/                 # shadcn/ui components
+lib/
+├── video-renderers/    # Video rendering providers
+│   ├── remotion-renderer.ts
+│   ├── creatomate-renderer.ts
+│   └── factory.ts
+├── prisma.ts           # Database client
+└── stripe.ts           # Payment integration
+prisma/
+├── schema.prisma       # Database schema
+└── migrations/         # Database migrations
+public/                 # Static assets + videos
 ```
 
 ## License
